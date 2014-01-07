@@ -1,4 +1,0 @@
-handiClient
-===========
-
-Client(MVC)
