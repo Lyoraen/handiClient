@@ -1,8 +1,8 @@
 package fr.ensicaen.equipe1.handiclient.goodbyepackage;
 
-import fr.ensicaen.equipe1.handiclient.modelpackage.IModel;
+import fr.ensicaen.equipe1.handiclient.modelpackage.MainModel;
 
-public class GoodByeModel implements IModel {
+public class GoodByeModel extends MainModel {
 	
 	private GoodByeActivity _goodByeActivity;
 

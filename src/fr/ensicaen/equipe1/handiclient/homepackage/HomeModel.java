@@ -1,8 +1,8 @@
 package fr.ensicaen.equipe1.handiclient.homepackage;
 
-import fr.ensicaen.equipe1.handiclient.modelpackage.IModel;
+import fr.ensicaen.equipe1.handiclient.modelpackage.MainModel;
 
-public class HomeModel implements IModel {
+public class HomeModel extends MainModel {
 
 	private HomeActivity _homeActivity; 
 

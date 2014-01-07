@@ -1,8 +1,8 @@
 package fr.ensicaen.equipe1.handiclient.menupackage;
 
-import fr.ensicaen.equipe1.handiclient.modelpackage.IModel;
+import fr.ensicaen.equipe1.handiclient.modelpackage.MainModel;
 
-public class MenuModel implements IModel {
+public class MenuModel extends MainModel {
 	
 	private MenuActivity _menuActivity;
 

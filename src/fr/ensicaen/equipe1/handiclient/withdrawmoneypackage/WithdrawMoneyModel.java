@@ -1,8 +1,8 @@
 package fr.ensicaen.equipe1.handiclient.withdrawmoneypackage;
 
-import fr.ensicaen.equipe1.handiclient.modelpackage.IModel;
+import fr.ensicaen.equipe1.handiclient.modelpackage.MainModel;
 
-public class WithdrawMoneyModel implements IModel {
+public class WithdrawMoneyModel extends MainModel {
 	
 	private WithdrawMoneyActivity _withdrawMoneyActivity;
 
