@@ -1,0 +1,14 @@
+package fr.ensicaen.equipe1.handiclient.goodbyepackage;
+
+import fr.ensicaen.equipe1.handiclient.goodbyepackage.GoodByeActivity;
+import fr.ensicaen.equipe1.handiclient.viewpackage.IView;
+
+public class GoodByeView implements IView {
+
+	private GoodByeActivity _goodByeActivity;
+
+	public GoodByeView(GoodByeActivity goodByeActivity) {
+		_goodByeActivity = goodByeActivity;
+	}
+
+}
