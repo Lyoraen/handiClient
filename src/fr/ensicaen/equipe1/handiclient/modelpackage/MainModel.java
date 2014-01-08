@@ -13,22 +13,20 @@ public final class MainModel {
 
 	private static volatile MainModel _instance = null;
 
-	private int _id;
+	private String _id;
 	private int _controlMode;
 	private int _viewMode;
 	private NetworkHandler _networkHandler = NetworkHandler.getInstance();
 
-	private MainModel(int id, int controlMode, int viewMode) {
+	private MainModel(String id) {
 		_id = id;
-		_controlMode = controlMode;
-		_viewMode = viewMode;
 	}
-
-	public static MainModel createInstance(int id, int controlMode, int viewMode) {
+	
+	public static MainModel createInstance(String id) {
 		if (_instance == null) {
 			synchronized (MainModel.class) {
 				if (_instance == null) {
-					_instance = new MainModel(id, controlMode, viewMode);
+					_instance = new MainModel(id);
 				}
 			}
 		}
