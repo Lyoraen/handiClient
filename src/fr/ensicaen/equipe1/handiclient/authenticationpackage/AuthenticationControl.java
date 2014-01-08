@@ -7,7 +7,7 @@ public class AuthenticationControl {
 	private AuthenticationActivity _authenticationActivity;
 	private IControl _control;
 
-	public AuthenticationControl(AuthenticationActivity authenticationActivity) {
+	public AuthenticationControl(AuthenticationActivity authenticationActivity,int controlType) {
 		_authenticationActivity = authenticationActivity;
 	}
 }
