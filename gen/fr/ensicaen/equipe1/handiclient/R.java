@@ -28,9 +28,9 @@ public final class R {
         public static final int GridLayout1=0x7f08000c;
         public static final int action_settings=0x7f080026;
         public static final int add=0x7f080002;
-        public static final int annuler=0x7f080023;
+        public static final int annuler=0x7f080021;
         public static final int approchez=0x7f080001;
-        public static final int autreopération=0x7f080025;
+        public static final int autreoperation=0x7f080023;
         public static final int button1=0x7f08000d;
         public static final int button10=0x7f080016;
         public static final int button11=0x7f080017;
@@ -47,19 +47,19 @@ public final class R {
         public static final int button7=0x7f080013;
         public static final int button8=0x7f080014;
         public static final int button9=0x7f080015;
-        public static final int choixmontant=0x7f08001d;
-        public static final int end=0x7f08001f;
+        public static final int choixmontant=0x7f080024;
+        public static final int end=0x7f08001d;
         public static final int id=0x7f080003;
         public static final int idtag=0x7f080004;
-        public static final int montantField=0x7f08001e;
+        public static final int montantField=0x7f080025;
         public static final int nom=0x7f080005;
         public static final int nomfield=0x7f080006;
         public static final int pin=0x7f08000a;
         public static final int pinField=0x7f08000b;
-        public static final int quelleoperation=0x7f080020;
-        public static final int retrait20=0x7f080021;
-        public static final int retraitautre=0x7f080022;
-        public static final int solde=0x7f080024;
+        public static final int quelleoperation=0x7f08001e;
+        public static final int retrait20=0x7f08001f;
+        public static final int retraitautre=0x7f080020;
+        public static final int solde=0x7f080022;
         public static final int soldefield=0x7f080008;
         public static final int soldetext=0x7f080007;
         public static final int title=0x7f080000;
@@ -67,12 +67,12 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_accueil=0x7f030000;
-        public static final int activity_home=0x7f030001;
-        public static final int admin=0x7f030002;
-        public static final int authentication=0x7f030003;
-        public static final int choix_montant=0x7f030004;
-        public static final int end=0x7f030005;
-        public static final int operation=0x7f030006;
+        public static final int activity_admin=0x7f030001;
+        public static final int activity_authentication=0x7f030002;
+        public static final int activity_goodbye=0x7f030003;
+        public static final int activity_home=0x7f030004;
+        public static final int activity_menu=0x7f030005;
+        public static final int activity_withdrawmoney=0x7f030006;
     }
     public static final class menu {
         public static final int home=0x7f070000;

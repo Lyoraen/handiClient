@@ -80,7 +80,7 @@
 	 />
     
     <Button
-        android:id="@+id/autreopération"
+        android:id="@+id/autreoperation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/solde"
