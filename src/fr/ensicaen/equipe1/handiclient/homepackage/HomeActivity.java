@@ -1,5 +1,6 @@
 package fr.ensicaen.equipe1.handiclient.homepackage;
 
+<<<<<<< HEAD
 import fr.ensicaen.equipe1.handiclient.R;
 import fr.ensicaen.equipe1.handiclient.R.layout;
 import fr.ensicaen.equipe1.handiclient.R.menu;
@@ -13,10 +14,16 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.view.Menu;
+=======
+import android.app.Activity;
+import android.os.Bundle;
+import fr.ensicaen.equipe1.handiclient.R;
+>>>>>>> 9bf65eb7b407325520657ce30493fc7e6ab7255b
 
 @TargetApi(Build.VERSION_CODES.GINGERBREAD_MR1)
 public class HomeActivity extends Activity {
 
+<<<<<<< HEAD
 	private NfcAdapter mAdapter;
 
 	@Override
@@ -59,3 +66,11 @@ public class HomeActivity extends Activity {
 		System.out.println(id);
 	}
 }
+=======
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+    }
+}
+>>>>>>> 9bf65eb7b407325520657ce30493fc7e6ab7255b

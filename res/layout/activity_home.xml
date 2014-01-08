@@ -6,11 +6,30 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AuthenticationActivity" >
+    android:background="#040037"
+    tools:context=".AccueilActivity" >
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_centerHorizontal="true"
+        android:textSize="40sp"
+        android:textColor="#FFFFFF"
+        android:text="@string/TitreScreen1" />
+    
+
+    
+    <TextView
+        android:id="@+id/approchez"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="40sp"
+        android:textColor="#FFFFFF"
+        android:text="@string/Approchez" />
+    
+    
 
 </RelativeLayout>
