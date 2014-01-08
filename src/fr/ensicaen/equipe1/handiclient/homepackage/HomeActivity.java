@@ -1,11 +1,16 @@
 package fr.ensicaen.equipe1.handiclient.homepackage;
 
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
+import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -20,31 +25,57 @@ public class HomeActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		mAdapter = NfcAdapter.getDefaultAdapter(getApplicationContext());
+		if(mAdapter==null || !mAdapter.isEnabled()){
+			finish();
+			return;
+		}
 	}
 
-	public void onResume() {
+	protected void onResume() {
+		super.onResume();
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, this.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
 		mAdapter.enableForegroundDispatch(this, pendingIntent, null, null);
 	}
 
 	public void onNewIntent(Intent intent) {
-		resoudreIntent(intent);
+		setIntent(intent);
+		resolveIntent(intent);
 	}
 
-	public void resoudreIntent(Intent intent) {
+	protected void onPause() {
+		mAdapter.disableForegroundDispatch(this);
+		super.onPause();
+	}
+
+
+	public void resolveIntent(Intent intent) {
+		Tag tagFromIntent = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+		byte[] id = tagFromIntent.getId();
+		// récupération de l'id
+		System.out.println(bin2hex(id));
 		String action = intent.getAction();
-		byte[] id = null;
-		if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(action)){
+		if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)){
 			Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
 			NdefMessage[] messages;
 			if (rawMsgs != null) {
 				messages = new NdefMessage[rawMsgs.length];
 				for (int i = 0; i < rawMsgs.length; i++) {
 					messages[i] = (NdefMessage) rawMsgs[i];
-					id = messages[i].getRecords()[i].getId();
 				}
+				//NdefRecord record = messages[0].getRecords()[0];
+				/*
+				System.out.println(new String(record.getId()));
+				System.out.println(record.getTnf());
+				System.out.println(record.getType());
+				System.out.println(getrecord.getPayload()));
+				*/
 			}
 		}
-		System.out.println(id);
+	}
+
+	//To display the UID
+	static String bin2hex(byte[] data) {
+		return String.format("%0" + (data.length * 2) + "X", new BigInteger(1,data));
 	}
 }
