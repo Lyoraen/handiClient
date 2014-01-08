@@ -18,18 +18,15 @@
         android:textColor="#FFFFFF"
         android:text="@string/TitreScreen1" />
     
-
     
     <TextView
         android:id="@+id/approchez"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:textSize="40sp"
         android:textColor="#FFFFFF"
         android:text="@string/Approchez" />
-    
     
 
 </RelativeLayout>
