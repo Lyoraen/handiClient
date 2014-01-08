@@ -10,5 +10,7 @@ public class MenuView {
 	public MenuView(MenuActivity menuActivity) {
 		_menuActivity = menuActivity;
 	}
+	
+	
 
 }
