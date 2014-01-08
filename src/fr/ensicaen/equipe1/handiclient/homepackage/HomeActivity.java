@@ -63,8 +63,6 @@ public class HomeActivity extends Activity {
 
 		// getting the tag id
 		String uid = bin2hex(tagFromIntent.getId());
-		_homeModel.setId(uid);
-
 
 		String action = intent.getAction();
 		if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)){
@@ -82,13 +80,14 @@ public class HomeActivity extends Activity {
 					String textEncoding = ((payload[0] & 0200) == 0) ? "UTF-8" : "UTF-16";
 					int languageCodeLength = payload[0] & 0077;
 					//String languageCode = new String(payload, 1, languageCodeLength, "US-ASCII");
-					String text = new String(payload, languageCodeLength + 1, payload.length - languageCodeLength - 1, textEncoding);
+					String pin = new String(payload, languageCodeLength + 1, payload.length - languageCodeLength - 1, textEncoding);
 					/*
 				System.out.println(bin2hex(record.getId()));
 				System.out.println(record.getTnf());
 				System.out.println(bin2hex(record.getType()));
 					 */
-					System.out.println(text);
+					System.out.println(pin);
+					_homeModel.setCardData(uid, pin);
 				} catch (Exception e){
 
 				}

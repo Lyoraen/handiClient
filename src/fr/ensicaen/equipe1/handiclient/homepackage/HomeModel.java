@@ -10,7 +10,7 @@ public class HomeModel {
 		_homeActivity = homeActivity;
 	}
 	
-	public void setId(String id) {
-		MainModel.createInstance(id);
+	public void setCardData(String id,String pin) {
+		MainModel.createInstance(id,pin);
 	}
 }
