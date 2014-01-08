@@ -1,5 +1,6 @@
 package fr.ensicaen.equipe1.handiclient.controlpackage;
 
+import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
@@ -9,6 +10,9 @@ public class MultiTouchControl implements IControl {
 	private float _previousX;
 	private float _previousY;
 	private int pointCnt = 0;
+	
+	private static final int INVALID_POINTER_ID = -1;
+	private int _singleFingerPointerID = INVALID_POINTER_ID;
 
 	TextView textView;  //textView = (TextView) findViewById(R.id.text);
 
@@ -32,59 +36,64 @@ public class MultiTouchControl implements IControl {
 
 	@Override
 	public void reactDependingOnUserActions(MotionEvent motionEvent) {
-		int action = (motionEvent.getAction() & MotionEvent.ACTION_MASK);
+		// MotionEvent reports input details from the touch screen
+				// and other input controls. In this case, you are only
+				// interested in events where the touch position changed.
 
-		try {
-		
-			switch (action) {
-			case MotionEvent.ACTION_DOWN:
-				pointCnt = 1;
-				textView.setText("DOWN : " + String.valueOf(pointCnt));
-				_previousX = motionEvent.getX();
-				_previousY = motionEvent.getY();
-				break;
+				int pointerIndex;
+				int action = (motionEvent.getAction() & MotionEvent.ACTION_MASK);
 
-			case MotionEvent.ACTION_UP:
+				try {
 				
-				if(getDistance(_previousX, _previousY, motionEvent) > 300){
-					textView.setText("valide");
-					useButtonValidate();
-					pointCnt = 0;
-				}
-				else if (getDistance(_previousX, _previousY, motionEvent) < -300 ) {
-					textView.setText("annule");
-					useButtonCancel();
-					pointCnt = 0;
-				}
-			
-				if (pointCnt>0){
-					for(int i=1; i<10; i++){
-						if(pointCnt == i){
-							useButton(i);
-							break;
+					switch (action) {
+					case MotionEvent.ACTION_DOWN:
+						pointerIndex = MotionEventCompat.getActionIndex(motionEvent);
+						_singleFingerPointerID = MotionEventCompat.getPointerId(motionEvent, pointerIndex);
+						pointCnt = 1;
+						textView.setText("DOWN : " + String.valueOf(pointCnt));
+						_previousX = motionEvent.getX();
+						_previousY = motionEvent.getY();
+						break;
+
+					case MotionEvent.ACTION_UP:
+						pointerIndex = MotionEventCompat.getActionIndex(motionEvent);
+						int pointerID = MotionEventCompat.getPointerId(motionEvent, pointerIndex);
+						if(pointerID == _singleFingerPointerID){
+							if(getDistance(_previousX, _previousY, motionEvent) > 200){
+								textView.setText("valide");
+								pointCnt = 0;
+							}
+							else if (getDistance(_previousX, _previousY, motionEvent) < -200 ) {
+								textView.setText("annule");
+								pointCnt = 0;
+							}
 						}
+						if (pointCnt>0){
+							textView.setText(String.valueOf(pointCnt));
+							//code = code + String.valueOf(pointCnt);
+							//textView.setText(code);
+						}
+						break;
+
+
+					case MotionEvent.ACTION_POINTER_DOWN:
+						// textView.setText( String.valueOf(pointCnt));
+						int currentPointerCnt = motionEvent.getPointerCount();
+
+						if (currentPointerCnt > pointCnt) {
+							pointCnt = currentPointerCnt;
+						}
+
+						textView.setText("POINTER_DOWN : " + String.valueOf(pointCnt));
+						break;
+
+					default:
+						break;
 					}
-					textView.setText(String.valueOf(pointCnt));
-				}
-				break;
-
-
-			case MotionEvent.ACTION_POINTER_DOWN:
-
-				int currentPointerCnt = motionEvent.getPointerCount();
-				if (currentPointerCnt > pointCnt) {
-					pointCnt = currentPointerCnt;
-				}
-
-				textView.setText("POINTER_DOWN : " + String.valueOf(pointCnt));
-				break;
-
-			default:
-				break;
-			}
-		} catch (Exception e) {
-			Log.e("error", e.getMessage());
-		}	
+					
+				} catch (Exception e) {
+					Log.e("error", e.getMessage());
+				}	
 	}
 	
 	

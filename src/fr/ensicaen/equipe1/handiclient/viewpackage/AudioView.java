@@ -1,8 +1,8 @@
 package fr.ensicaen.equipe1.handiclient.viewpackage;
 
 import java.util.Locale;
+import fr.ensicaen.equipe1.handiclient.R;
 
-import android.R;
 import android.app.Activity;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
@@ -18,7 +18,7 @@ public class AudioView implements IView, TextToSpeech.OnInitListener{
 	}
 
 	public void readActivityDescription(){
-		
+		_activity.findViewById(R.id.layout);
 	}
 	
 	private void readButtonDescription(Button button){
