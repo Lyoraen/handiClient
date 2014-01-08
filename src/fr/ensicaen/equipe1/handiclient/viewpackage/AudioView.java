@@ -24,7 +24,8 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		_tts = new TextToSpeech(_activity, this);
 	}
 
-	public void readActivityDescription() {
+	@Override
+	public void describe() {
 		new Thread(new Runnable() {
 			public void run() {
 				ViewGroup layout = (ViewGroup) _activity.findViewById(_layoutID);
@@ -50,7 +51,8 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		}
 	}
 
-	public void blinkButton(Button button) {
+	@Override
+	public void reactOnAction(Button button) {
 		Animation animation = new ScaleAnimation(1, 0.8f, 1, 0.8f);
 	    animation.setDuration(300);
 	    animation.setInterpolator(new AccelerateInterpolator());
