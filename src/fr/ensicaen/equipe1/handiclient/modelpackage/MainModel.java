@@ -14,8 +14,8 @@ public final class MainModel {
 	private static volatile MainModel _instance = null;
 
 	private String _id;
-	private int _controlMode;
-	private int _viewMode;
+	private int _controlType;
+	private int _viewType;
 	private NetworkHandler _networkHandler = NetworkHandler.getInstance();
 
 	private MainModel(String id) {
@@ -39,5 +39,13 @@ public final class MainModel {
 
 	public static void deleteInstance() {
 		_instance = null;
+	}
+	
+	public int getControlType() {
+		return _controlType;
+	}
+	
+	public int getViewType() {
+		return _viewType;
 	}
 }
