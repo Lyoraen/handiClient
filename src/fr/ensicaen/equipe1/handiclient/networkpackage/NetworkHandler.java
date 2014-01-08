@@ -4,6 +4,7 @@ public final class NetworkHandler {
 	private static NetworkHandler _instance = new NetworkHandler();
 
 	private NetworkHandler() {
+		
 	}
 
 	public static NetworkHandler getInstance() {
@@ -24,5 +25,9 @@ public final class NetworkHandler {
 	
 	public int getBalance() {
 		return 1;
+	}
+
+	public int getPersonalisation() {
+		return 0;
 	}
 }
