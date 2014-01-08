@@ -1,43 +1,25 @@
 package fr.ensicaen.equipe1.handiclient.homepackage;
 
-<<<<<<< HEAD
-import fr.ensicaen.equipe1.handiclient.R;
-import fr.ensicaen.equipe1.handiclient.R.layout;
-import fr.ensicaen.equipe1.handiclient.R.menu;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.view.Menu;
-=======
-import android.app.Activity;
-import android.os.Bundle;
 import fr.ensicaen.equipe1.handiclient.R;
->>>>>>> 9bf65eb7b407325520657ce30493fc7e6ab7255b
 
 @TargetApi(Build.VERSION_CODES.GINGERBREAD_MR1)
 public class HomeActivity extends Activity {
 
-<<<<<<< HEAD
 	private NfcAdapter mAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-	}
-
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.home, menu);
-		return true;
 	}
 
 	public void onResume() {
@@ -66,11 +48,3 @@ public class HomeActivity extends Activity {
 		System.out.println(id);
 	}
 }
-=======
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-    }
-}
->>>>>>> 9bf65eb7b407325520657ce30493fc7e6ab7255b
