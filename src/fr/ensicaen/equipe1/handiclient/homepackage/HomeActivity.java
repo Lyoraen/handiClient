@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Build;
@@ -64,7 +65,7 @@ public class HomeActivity extends Activity {
 		String uid = bin2hex(tagFromIntent.getId());
 		_homeModel.setId(uid);
 
-		/*
+
 		String action = intent.getAction();
 		if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)){
 			Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
@@ -74,18 +75,29 @@ public class HomeActivity extends Activity {
 				for (int i = 0; i < rawMsgs.length; i++) {
 					messages[i] = (NdefMessage) rawMsgs[i];
 				}
-				//NdefRecord record = messages[0].getRecords()[0];
-				System.out.println(new String(record.getId()));
+				NdefRecord record = messages[0].getRecords()[0];
+				try {
+					// decoding the payload
+					byte[] payload = record.getPayload();
+					String textEncoding = ((payload[0] & 0200) == 0) ? "UTF-8" : "UTF-16";
+					int languageCodeLength = payload[0] & 0077;
+					//String languageCode = new String(payload, 1, languageCodeLength, "US-ASCII");
+					String text = new String(payload, languageCodeLength + 1, payload.length - languageCodeLength - 1, textEncoding);
+					/*
+				System.out.println(bin2hex(record.getId()));
 				System.out.println(record.getTnf());
-				System.out.println(record.getType());
-				System.out.println(getrecord.getPayload()));
-			}
-	}
-	*/
-}
+				System.out.println(bin2hex(record.getType()));
+					 */
+					System.out.println(text);
+				} catch (Exception e){
 
-//To display the UID
-static String bin2hex(byte[] data) {
-	return String.format("%0" + (data.length * 2) + "X", new BigInteger(1,data));
-}
+				}
+			}
+		}
+	}
+
+	//To display the UID
+	static String bin2hex(byte[] data) {
+		return String.format("%0" + (data.length * 2) + "X", new BigInteger(1,data));
+	}
 }
