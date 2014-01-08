@@ -7,7 +7,12 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#040037"
+<<<<<<< HEAD
     tools:context=".AccueilActivity" >
+=======
+    tools:context=".AccueilActivity" 
+    android:id="@+id/layoutHome">
+>>>>>>> d7c3afaec0e5576cdb19609fc1270e839cd356c7
 
     <TextView
         android:id="@+id/title"

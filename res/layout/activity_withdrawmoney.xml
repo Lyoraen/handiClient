@@ -7,7 +7,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#040037"
-    tools:context=".AccueilActivity" >
+    tools:context=".AccueilActivity"
+    android:id="@+id/layoutWithdrawmoney" >
 
     <TextView
         android:id="@+id/choixmontant"
