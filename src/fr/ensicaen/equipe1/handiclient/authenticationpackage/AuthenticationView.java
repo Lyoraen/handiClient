@@ -11,6 +11,7 @@ public class AuthenticationView implements IView{
 	private IView _view;
 	
 	private String _pinCodeDisplayed = "";
+	private String _tooMuchEntries = "Le code é déjà composé de 4 caractères.";
 
 	public AuthenticationView(AuthenticationActivity authenticationActivity,String viewType) {
 		_authenticationActivity = authenticationActivity;
@@ -45,7 +46,7 @@ public class AuthenticationView implements IView{
 	
 	public void describeActivity() {
 		System.out.println(_authenticationActivity.getModel().getActivityDescription());
-		_view.describeActivity(_authenticationActivity.getModel().getActivityDescription());
+		_view.describe(_authenticationActivity.getModel().getActivityDescription());
 	}
 	
 	public void addStarToPinField() {
@@ -63,9 +64,13 @@ public class AuthenticationView implements IView{
 		TextView pinField = (TextView) _authenticationActivity.findViewById(R.id.pinField);
 		pinField.setText(_pinCodeDisplayed);
 	}
+	
+	public void tooMuchEntries() {
+		_view.describe(_tooMuchEntries);
+	}
 
 	@Override
-	public void describeActivity(String speech) {
+	public void describe(String speech) {
 		// TODO Auto-generated method stub
 		
 	}

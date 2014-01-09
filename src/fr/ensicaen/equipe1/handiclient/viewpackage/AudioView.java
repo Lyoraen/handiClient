@@ -3,7 +3,6 @@ package fr.ensicaen.equipe1.handiclient.viewpackage;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
-import fr.ensicaen.equipe1.handiclient.R;
 
 import android.app.Activity;
 import android.media.AudioManager;
@@ -22,8 +21,9 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 	private TextToSpeech _tts;
 	private Activity _activity;
 	private int _layoutID;
-	private boolean hasInitializedTTS = false;
-	private ArrayList<String> awaitingSpeeches = new ArrayList<String>();
+	private boolean _hasInitializedTTS = false;
+	private ArrayList<String> _awaitingSpeeches = new ArrayList<String>();
+	private ToneGenerator _toneGenerator= new ToneGenerator(AudioManager.STREAM_ALARM, 100);
 
 	public AudioView(Activity activity, int layoutID) {
 		_activity = activity;
@@ -50,7 +50,7 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 
 	private void readDescription(View v) {
 		String text = v.getContentDescription().toString();
-		if (hasInitializedTTS) {
+		if (_hasInitializedTTS) {
 			_tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 			try {
 				Thread.sleep(2500);
@@ -58,13 +58,38 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 				e.printStackTrace();
 			}
 		} else {
-			awaitingSpeeches.add(text);
+			_awaitingSpeeches.add(text);
 		}
 	}
 
 	@Override
 	public void reactOnNumberButtons(Button button) {
 		/* Animation */
+		animateButton(button);
+		
+		/* Sound */
+		_toneGenerator.startTone(ToneGenerator.TONE_CDMA_ABBR_ALERT,200); 
+	}
+	
+	@Override
+	public void reactOnCancelButton(Button button) {
+		/* Animation */
+		animateButton(button);
+		
+		/* Sound */
+		_toneGenerator.startTone(ToneGenerator.TONE_SUP_ERROR,200); 
+	}
+
+	@Override
+	public void reactOnValidateButton(Button button) {
+		/* Animation */
+		animateButton(button);
+		
+		/* Sound */
+		_toneGenerator.startTone(ToneGenerator.TONE_SUP_PIP,200); 
+	}
+	
+	private void animateButton (Button button) {
 		Animation animation = new ScaleAnimation(1, 0.8f, 1, 0.8f,
 				Animation.RELATIVE_TO_SELF, 0.5f, 
 				Animation.RELATIVE_TO_SELF, 0.5f);
@@ -73,22 +98,6 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		animation.setRepeatCount(1);
 		animation.setRepeatMode(Animation.REVERSE);
 		button.startAnimation(animation);
-		
-		/* Sound */
-		ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
-		toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 200); 
-	}
-	
-	@Override
-	public void reactOnCancelButton(Button button) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void reactOnValidateButton(Button button) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -102,9 +111,9 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 				Log.e("TTS", "Initilization Failed!");
 			}
 		}
-		hasInitializedTTS = true;
-		if (!awaitingSpeeches.isEmpty()) {
-			Iterator<String> it = awaitingSpeeches.iterator();
+		_hasInitializedTTS = true;
+		if (!_awaitingSpeeches.isEmpty()) {
+			Iterator<String> it = _awaitingSpeeches.iterator();
 			while (it.hasNext()) {
 				_tts.speak(it.next(), TextToSpeech.QUEUE_FLUSH, null);
 				try {
@@ -116,10 +125,11 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		}
 	}
 
-	public void describeActivity(final String speech) {
+	@Override
+	public void describe(final String speech) {
 		new Thread(new Runnable() {
 			public void run() {
-				if (hasInitializedTTS) {
+				if (_hasInitializedTTS) {
 					_tts.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
 					try {
 						Thread.sleep(2500);
@@ -127,7 +137,7 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 						e.printStackTrace();
 					}
 				} else {
-					awaitingSpeeches.add(speech);
+					_awaitingSpeeches.add(speech);
 				}
 			}
 		}).start();

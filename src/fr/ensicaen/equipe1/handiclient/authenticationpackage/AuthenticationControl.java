@@ -20,15 +20,16 @@ public class AuthenticationControl implements IControl {
 	
 	@Override
 	public void useButton(int i) {
-		_authenticationActivity.getModel().addNumberToPin(i);
+		boolean added = _authenticationActivity.getModel().addNumberToPin(i);
 		_authenticationActivity.getView().reactOnNumberButtons((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbutton"+i, "id", _authenticationActivity.getPackageName())));
+		if(added == false)
+			_authenticationActivity.getView().tooMuchEntries();
 	}
 
 	@Override
 	public void useButtonCancel() {
 		boolean cancelled = _authenticationActivity.getModel().cancelEntry();
 		_authenticationActivity.getView().reactOnCancelButton((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbuttoncancel", "id", _authenticationActivity.getPackageName())));
-		//TODO if (cancelled == true) _activity.intentToGoodByeActivity();
 		if (cancelled == false) {
 			_authenticationActivity.intentToGoodByeActivity();
 		}
@@ -36,9 +37,10 @@ public class AuthenticationControl implements IControl {
 
 	@Override
 	public void useButtonValidate() {
-		_authenticationActivity.getModel().verifyPIN();
 		_authenticationActivity.getView().reactOnValidateButton((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbuttonvalidate", "id", _authenticationActivity.getPackageName())));
-
+		if(_authenticationActivity.getModel().verifyPIN()) {
+			_authenticationActivity.intentToMenuActivity();
+		}
 	}
 	
 	@Override

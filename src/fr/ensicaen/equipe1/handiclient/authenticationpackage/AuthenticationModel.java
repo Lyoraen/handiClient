@@ -22,11 +22,16 @@ public class AuthenticationModel {
 		return _mainModel.getViewType();
 	}
 
-	public void addNumberToPin(int i) {
-		_pinCodeEnteredByUser += "" + i;
-		
-		// Notify View
-		_authenticationActivity.getView().addStarToPinField();
+	public boolean addNumberToPin(int i) {
+		if(_pinCodeEnteredByUser.length() < 4) {
+			_pinCodeEnteredByUser += "" + i;
+			
+			// Notify View
+			_authenticationActivity.getView().addStarToPinField();
+			
+			return true;
+		}
+		return false;
 	}
 
 	public boolean cancelEntry() {
@@ -42,7 +47,7 @@ public class AuthenticationModel {
 	}
 
 	public boolean verifyPIN() {
-		if (_pinCodeEnteredByUser.equals(_mainModel.getPin()))
+		if (_mainModel.verifyPin(_pinCodeEnteredByUser))
 			return true;
 		
 		// Notify View
