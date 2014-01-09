@@ -47,4 +47,10 @@ public class MenuView implements IView {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void destroyTTS() {
+		// TODO Auto-generated method stub
+		
+	}
 }

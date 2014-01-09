@@ -69,6 +69,10 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		
 		/* Sound */
 		_toneGenerator.startTone(ToneGenerator.TONE_CDMA_ABBR_ALERT,200); 
+		
+		/*TTS*/
+		if(_tts != null)
+			_tts.stop();
 	}
 	
 	@Override
@@ -78,6 +82,10 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		
 		/* Sound */
 		_toneGenerator.startTone(ToneGenerator.TONE_SUP_ERROR,200); 
+		
+		/*TTS*/
+		if(_tts != null)
+			_tts.stop();
 	}
 
 	@Override
@@ -87,6 +95,10 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		
 		/* Sound */
 		_toneGenerator.startTone(ToneGenerator.TONE_SUP_PIP,200); 
+		
+		/*TTS*/
+		if(_tts != null)
+			_tts.stop();
 	}
 	
 	private void animateButton (Button button) {
@@ -107,9 +119,9 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 			if (resultLocalization == TextToSpeech.LANG_MISSING_DATA
 					|| resultLocalization == TextToSpeech.LANG_NOT_SUPPORTED) {
 				Log.e("TTS", "This Language is not supported");
-			} else {
-				Log.e("TTS", "Initilization Failed!");
-			}
+			} 
+		} else {
+			Log.e("TTS", "Initilization Failed!");
 		}
 		_hasInitializedTTS = true;
 		if (!_awaitingSpeeches.isEmpty()) {
@@ -141,5 +153,14 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 				}
 			}
 		}).start();
+	}
+	
+	@Override
+	public void destroyTTS(){
+		if(_tts != null){
+			_tts.stop();
+			_tts.shutdown();
+			_tts = null;
+		}
 	}
 }

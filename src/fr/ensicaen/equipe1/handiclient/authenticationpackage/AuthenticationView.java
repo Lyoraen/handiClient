@@ -74,4 +74,10 @@ public class AuthenticationView implements IView{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void destroyTTS() {
+		_view.destroyTTS();
+		
+	}
 }

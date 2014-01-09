@@ -64,4 +64,11 @@ public class AuthenticationActivity extends Activity {
 		this.startActivity(menuIntent);
 		finish();
 	}
+	
+	@Override
+	public void onPause(){
+		_authenticationView.destroyTTS();
+		super.onPause();
+		
+	}
 }

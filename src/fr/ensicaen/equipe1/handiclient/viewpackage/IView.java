@@ -8,5 +8,6 @@ public interface IView {
 	public void reactOnNumberButtons(Button button);
 	public void reactOnCancelButton(Button button);
 	public void reactOnValidateButton(Button button);
+	public void destroyTTS();
 
 }

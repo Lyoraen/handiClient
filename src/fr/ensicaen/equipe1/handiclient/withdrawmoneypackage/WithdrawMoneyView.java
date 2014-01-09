@@ -78,4 +78,10 @@ public class WithdrawMoneyView implements IView{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void destroyTTS() {
+		// TODO Auto-generated method stub
+		
+	}
 }
