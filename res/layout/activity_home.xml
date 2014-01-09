@@ -19,9 +19,7 @@
         android:textSize="40sp"
         android:textColor="#FFFFFF"
         android:text="@string/TitreScreen1" />
-    
-
-    
+     
     <TextView
         android:id="@+id/approchez"
         android:layout_width="wrap_content"
@@ -32,6 +30,11 @@
         android:textColor="#FFFFFF"
         android:text="@string/Approchez" />
     
-    
+    <Button
+        android:id="@+id/adminButton"
+        android:layout_height="wrap_content"
+     	android:layout_width="wrap_content"
+     	android:text="@string/admin"
+     	android:onClick="admin"/>
 
 </RelativeLayout>

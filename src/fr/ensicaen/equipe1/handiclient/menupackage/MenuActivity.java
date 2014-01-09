@@ -57,7 +57,6 @@ public class MenuActivity extends Activity {
 	}
 	
 	public void intentWithdrawMoneyActivity() {
-		System.out.println("HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		Intent withdrawMoneyIntent = new Intent(getApplicationContext(), WithdrawMoneyActivity.class);
 		this.startActivity(withdrawMoneyIntent);
 		finish();
