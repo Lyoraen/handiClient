@@ -9,7 +9,6 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -34,9 +33,9 @@ public class AdminActivity extends Activity {
 			return;
 		}
 		
-		_nameField = (EditText) findViewById(R.id.nomfield);
-		_pinField = (EditText) findViewById(R.id.pinField);
-		_soldeField = (EditText) findViewById(R.id.soldefield);
+		_nameField = (EditText) findViewById(R.id.amountField2);
+		_pinField = (EditText) findViewById(R.id.pinField2);
+		_soldeField = (EditText) findViewById(R.id.nameField2);
 		
 	}
 
@@ -52,7 +51,6 @@ public class AdminActivity extends Activity {
 		setIntent(intent);
 		if(!_nameField.getText().equals("") && !_soldeField.getText().equals("") && !_pinField.getText().equals("")) {
 			_stringToTag = _pinField.getText() + "*MULTITOUCH_MODE*AUDIO_MODE";
-			//_stringToTag = "1234*MULTITOUCH_MODE*AUDIO_MODE";
 			NdefMessage msg = creerMessage(_stringToTag, true);
 			writeMessage(intent, msg);
 		}

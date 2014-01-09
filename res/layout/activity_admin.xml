@@ -21,12 +21,12 @@
         android:text="@string/add" />
 
     <EditText
-        android:id="@+id/soldefield"
+        android:id="@+id/nameField2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/nom"
         android:layout_alignBottom="@+id/nom"
-        android:layout_alignLeft="@+id/idtag"
+        android:layout_alignLeft="@+id/pinField2"
         android:background="#FFFFFF"
         android:ems="10"
         android:height="50dp"
@@ -37,17 +37,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/nom"
-        android:layout_below="@+id/soldefield"
+        android:layout_below="@+id/nameField2"
         android:layout_marginTop="33dp"
         android:text="@string/soldeText"
         android:textColor="#FFFFFF"
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/nomfield"
+        android:id="@+id/amountField2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/soldefield"
+        android:layout_alignLeft="@+id/nameField2"
         android:layout_alignTop="@+id/soldetext"
         android:background="#FFFFFF"
         android:ems="10"
@@ -58,15 +58,15 @@
         android:id="@+id/pin2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/idtag"
+        android:layout_alignTop="@+id/pinField2"
         android:layout_marginRight="15dp"
-        android:layout_toLeftOf="@+id/idtag"
+        android:layout_toLeftOf="@+id/pinField2"
         android:text="@string/pin"
         android:textColor="#FFFFFF"
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/idtag"
+        android:id="@+id/pinField2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/add"
