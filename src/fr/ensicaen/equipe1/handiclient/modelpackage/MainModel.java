@@ -51,16 +51,18 @@ public final class MainModel {
 		_instance = null;
 	}
 	
+	public boolean verifyPin(String enteredPin) {
+		if(enteredPin.equals(_pin))
+			return true;
+		return false;
+	}
+	
 	public String getControlType() {
 		return _controlType;
 	}
 	
 	public String getViewType() {
 		return _viewType;
-	}
-	
-	public String getPin() {
-		return _pin;
 	}
 
 	public static String getName() {

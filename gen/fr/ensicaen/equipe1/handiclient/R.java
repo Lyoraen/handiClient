@@ -104,13 +104,18 @@ public final class R {
         public static final int TitreScreen1=0x7f050003;
         public static final int action_settings=0x7f050001;
         public static final int add=0x7f05000e;
+        public static final int admin=0x7f050015;
         public static final int annuler=0x7f050009;
         public static final int app_name=0x7f050000;
+        public static final int authentication=0x7f050016;
         public static final int autreoperation=0x7f05000b;
         public static final int choixmontant=0x7f05000d;
         public static final int end=0x7f05000c;
+        public static final int goodBye=0x7f050014;
         public static final int hello_world=0x7f050002;
+        public static final int home=0x7f050013;
         public static final int id=0x7f05000f;
+        public static final int menu=0x7f050017;
         public static final int nom=0x7f050010;
         public static final int pin=0x7f050005;
         public static final int quelleoperation=0x7f050006;
@@ -119,6 +124,7 @@ public final class R {
         public static final int solde=0x7f05000a;
         public static final int soldeText=0x7f050011;
         public static final int valid=0x7f050012;
+        public static final int withdraw=0x7f050018;
     }
     public static final class style {
         /** 

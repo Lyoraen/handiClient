@@ -11,6 +11,7 @@ import fr.ensicaen.equipe1.handiclient.homepackage.HomeActivity;
 import fr.ensicaen.equipe1.handiclient.homepackage.HomeControl;
 import fr.ensicaen.equipe1.handiclient.homepackage.HomeModel;
 import fr.ensicaen.equipe1.handiclient.homepackage.HomeView;
+import fr.ensicaen.equipe1.handiclient.menupackage.MenuActivity;
 
 public class AuthenticationActivity extends Activity {
 	private AuthenticationControl _authenticationControl;
@@ -31,7 +32,6 @@ public class AuthenticationActivity extends Activity {
     protected void onResume() {
 		super.onResume();
 		_authenticationView.describeActivity();
-
 		//_authenticationView.reactOnAction(button);
 	}
     
@@ -56,6 +56,12 @@ public class AuthenticationActivity extends Activity {
 	public void intentToGoodByeActivity() {
 		Intent goodByeIntent = new Intent(getApplicationContext(), GoodByeActivity.class);
 		this.startActivity(goodByeIntent);
+		finish();
+	}
+	
+	public void intentToMenuActivity() {
+		Intent menuIntent = new Intent(getApplicationContext(), MenuActivity.class);
+		this.startActivity(menuIntent);
 		finish();
 	}
 }

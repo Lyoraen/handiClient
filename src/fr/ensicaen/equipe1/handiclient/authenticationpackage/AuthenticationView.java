@@ -7,11 +7,11 @@ import fr.ensicaen.equipe1.handiclient.viewpackage.AudioView;
 import fr.ensicaen.equipe1.handiclient.viewpackage.IView;
 
 public class AuthenticationView implements IView{
-
 	private AuthenticationActivity _authenticationActivity;
 	private IView _view;
 	
 	private String _pinCodeDisplayed = "";
+	private String _tooMuchEntries = "Le code é déjà composé de 4 caractères.";
 
 	public AuthenticationView(AuthenticationActivity authenticationActivity,String viewType) {
 		_authenticationActivity = authenticationActivity;
@@ -28,14 +28,25 @@ public class AuthenticationView implements IView{
 	public void describe() {
 		_view.describe();
 	}
+	
+	@Override
+	public void reactOnNumberButtons(Button button) {
+		_view.reactOnNumberButtons(button);
+	}
 
-	public void reactOnAction(Button button) {
-		_view.reactOnAction(button);
+	@Override
+	public void reactOnCancelButton(Button button) {
+		_view.reactOnCancelButton(button);
+	}
+
+	@Override
+	public void reactOnValidateButton(Button button) {
+		_view.reactOnValidateButton(button);
 	}
 	
 	public void describeActivity() {
 		System.out.println(_authenticationActivity.getModel().getActivityDescription());
-		_view.describeActivity(_authenticationActivity.getModel().getActivityDescription());
+		_view.describe(_authenticationActivity.getModel().getActivityDescription());
 	}
 	
 	public void addStarToPinField() {
@@ -53,9 +64,13 @@ public class AuthenticationView implements IView{
 		TextView pinField = (TextView) _authenticationActivity.findViewById(R.id.pinField);
 		pinField.setText(_pinCodeDisplayed);
 	}
+	
+	public void tooMuchEntries() {
+		_view.describe(_tooMuchEntries);
+	}
 
 	@Override
-	public void describeActivity(String speech) {
+	public void describe(String speech) {
 		// TODO Auto-generated method stub
 		
 	}
