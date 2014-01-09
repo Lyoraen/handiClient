@@ -32,5 +32,6 @@
     <string name="getBalance">3 : Solde de vos contes.</string>
     <string name="otherOperation">4 : Autre opération.</string>
     <string name="withdrawmoneyDescription">Saisissez votre montant </string>
+    <string name="pin2">PIN :</string>
 
 </resources>

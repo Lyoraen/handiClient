@@ -3,6 +3,7 @@ package fr.ensicaen.equipe1.handiclient.adminpackage;
 import java.util.Locale;
 
 import fr.ensicaen.equipe1.handiclient.R;
+import fr.ensicaen.equipe1.handiclient.homepackage.HomeActivity;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -33,9 +34,9 @@ public class AdminActivity extends Activity {
 			return;
 		}
 		
-		_nameField = (EditText) findViewById(R.id.amountField2);
-		_pinField = (EditText) findViewById(R.id.pinField2);
-		_soldeField = (EditText) findViewById(R.id.nameField2);
+		_nameField = (EditText) findViewById(R.id.nameField2);
+		_pinField = (EditText) findViewById(R.id.pinField3);
+		_soldeField = (EditText) findViewById(R.id.soldeField3);
 		
 	}
 
@@ -53,6 +54,9 @@ public class AdminActivity extends Activity {
 			_stringToTag = _pinField.getText() + "*MULTITOUCH_MODE*AUDIO_MODE";
 			NdefMessage msg = creerMessage(_stringToTag, true);
 			writeMessage(intent, msg);
+			Intent homeIntent = new Intent(getApplicationContext(), HomeActivity.class);
+    		startActivity(homeIntent);
+    		finish();
 		}
 	}
 

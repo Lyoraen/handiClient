@@ -29,7 +29,6 @@ public final class R {
         public static final int add=0x7f080004;
         public static final int adminButton=0x7f080022;
         public static final int amountField=0x7f08002c;
-        public static final int amountField2=0x7f080009;
         public static final int approchez=0x7f080002;
         public static final int authenticationbutton0=0x7f08001c;
         public static final int authenticationbutton1=0x7f08000f;
@@ -64,10 +63,11 @@ public final class R {
         public static final int nameField2=0x7f080005;
         public static final int nom=0x7f080006;
         public static final int pin=0x7f08000c;
-        public static final int pin2=0x7f08000a;
+        public static final int pin2=0x7f080007;
         public static final int pinField=0x7f08000d;
-        public static final int pinField2=0x7f080007;
+        public static final int pinField3=0x7f080009;
         public static final int quelleoperation=0x7f080024;
+        public static final int soldeField3=0x7f08000a;
         public static final int soldetext=0x7f080008;
         public static final int title=0x7f080001;
         public static final int withdrawmoneybutton1=0x7f08002d;
@@ -122,6 +122,7 @@ public final class R {
         public static final int otherOperation=0x7f05001d;
         public static final int otherWithdraw=0x7f05001b;
         public static final int pin=0x7f050005;
+        public static final int pin2=0x7f05001f;
         public static final int quelleoperation=0x7f050006;
         public static final int retrait20=0x7f050007;
         public static final int retraitautre=0x7f050008;
