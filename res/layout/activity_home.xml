@@ -10,6 +10,7 @@
     tools:context=".AccueilActivity" 
     android:id="@+id/layoutHome">
 
+    
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
