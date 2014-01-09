@@ -1,9 +1,11 @@
 package fr.ensicaen.equipe1.handiclient.withdrawmoneypackage;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import fr.ensicaen.equipe1.handiclient.R;
+import fr.ensicaen.equipe1.handiclient.goodbyepackage.GoodByeActivity;
 
 public class WithdrawMoneyActivity extends Activity {
 	private WithdrawMoneyControl _withdrawMoneyControl;
@@ -22,7 +24,7 @@ public class WithdrawMoneyActivity extends Activity {
 	
 	protected void onResume() {
 		super.onResume();
-		_withdrawMoneyView.describe();
+		_withdrawMoneyView.describe(_withdrawMoneyModel.getActivityDescription());
 
 		//_authenticationView.reactOnAction(button);
 	}
@@ -43,5 +45,12 @@ public class WithdrawMoneyActivity extends Activity {
 
 	public WithdrawMoneyView getView() {
 		return _withdrawMoneyView;
+	}
+
+	public void intentToGoodByeActivity() {
+		Intent goodByeIntent = new Intent(getApplicationContext(), GoodByeActivity.class);
+		this.startActivity(goodByeIntent);
+		finish();
+		
 	}
 }

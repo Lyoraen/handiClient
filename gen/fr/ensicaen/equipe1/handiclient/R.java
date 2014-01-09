@@ -129,7 +129,11 @@ public final class R {
         public static final int soldeText=0x7f050011;
         public static final int valid=0x7f050012;
         public static final int withdraw=0x7f050018;
+<<<<<<< HEAD
         public static final int withdraw20euros=0x7f05001a;
+=======
+        public static final int withdrawmoneyDescription=0x7f050019;
+>>>>>>> 124fe25363e079e184d7d53cd8497315846e5bd7
     }
     public static final class style {
         /** 
