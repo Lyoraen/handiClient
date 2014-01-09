@@ -21,8 +21,6 @@ public class GoodByeActivity extends Activity {
 
 			@Override
 			public void onFinish() {
-				// TODO Auto-generated method stub
-
 				Intent beginningIntent = new Intent(getApplicationContext(), HomeActivity.class);
 				GoodByeActivity.this.startActivity(beginningIntent);
 				finish();
@@ -30,8 +28,6 @@ public class GoodByeActivity extends Activity {
 
 			@Override
 			public void onTick(long arg0) {
-				// TODO Auto-generated method stub
-
 			}
 
 		}.start();
