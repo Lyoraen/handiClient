@@ -27,7 +27,7 @@ public final class NetworkHandler {
 		return 1;
 	}
 
-	public int getPersonalisation() {
+	public static int getPersonalisation() {
 		return 0;
 	}
 }
