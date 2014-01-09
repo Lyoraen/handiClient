@@ -19,87 +19,73 @@
         android:textColor="#FFFFFF"
         android:layout_marginBottom="50dp"
         android:text="@string/add" />
-    
-    <TextView
-        android:id="@+id/id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="50dp"
-        android:layout_marginLeft="220dp"
-        android:layout_below="@id/add"
-        android:text="@string/id" />
 
-    
     <EditText
-        android:id="@+id/idtag"
+        android:id="@+id/nameField2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/add"
-        android:width="200dp"
-        android:height="50dp"
+        android:layout_alignBaseline="@+id/nom"
+        android:layout_alignBottom="@+id/nom"
+        android:layout_alignLeft="@+id/pinField2"
         android:background="#FFFFFF"
-        android:layout_marginBottom="30dp"
-        />
-    
-    
-    <TextView
-        android:id="@+id/nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="50dp"
-        android:layout_below="@id/id"
-        android:layout_marginLeft="220dp"
-        android:text="@string/nom" />
-    
-    <EditText
-        android:id="@+id/nomfield"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idtag"
-        android:layout_centerHorizontal="true"
-        android:width="200dp"
+        android:ems="10"
         android:height="50dp"
-        android:background="#FFFFFF"
-        android:layout_marginBottom="30dp"
-        />
-    
+        android:width="200dp" />
+
     <TextView
         android:id="@+id/soldetext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:layout_alignRight="@+id/nom"
+        android:layout_below="@+id/nameField2"
+        android:layout_marginTop="33dp"
+        android:text="@string/soldeText"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="50dp"
-        android:layout_below="@id/nom"
-        android:layout_marginLeft="220dp"
-        android:text="@string/soldeText" />
-    
+        android:textSize="30sp" />
+
     <EditText
-        android:id="@+id/soldefield"
+        android:id="@+id/amountField2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/nomfield"
-        android:width="200dp"
-        android:height="50dp"
+        android:layout_alignLeft="@+id/nameField2"
+        android:layout_alignTop="@+id/soldetext"
         android:background="#FFFFFF"
-        android:layout_marginBottom="50dp"
-        />
-    
-    <Button
-        android:id="@+id/valid"
+        android:ems="10"
+        android:height="50dp"
+        android:width="200dp" />
+
+    <TextView
+        android:id="@+id/pin2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		android:layout_centerHorizontal="true"
-        android:text="@string/valid"
-        android:layout_marginBottom="10dp"
-        android:textSize="40sp"
-        android:layout_below="@id/soldefield"
-      />
+        android:layout_alignTop="@+id/pinField2"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/pinField2"
+        android:text="@string/pin"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/pinField2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="44dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:height="50dp"
+        android:width="200dp" />
+
+    <TextView
+        android:id="@+id/nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pin2"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="60dp"
+        android:text="@string/nom"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
 
 </RelativeLayout>
