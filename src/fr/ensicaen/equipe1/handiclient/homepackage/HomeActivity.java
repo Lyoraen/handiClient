@@ -54,6 +54,7 @@ public class HomeActivity extends Activity {
 		resolveIntent(intent);
 		Intent nextIntent = new Intent(getApplicationContext(), AuthenticationActivity.class);
 		this.startActivity(nextIntent);
+		finish();
 	}
 
 	protected void onPause() {

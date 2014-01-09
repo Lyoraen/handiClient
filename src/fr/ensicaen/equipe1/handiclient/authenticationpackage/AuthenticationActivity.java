@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import fr.ensicaen.equipe1.handiclient.R;
+import fr.ensicaen.equipe1.handiclient.goodbyepackage.GoodByeActivity;
+import fr.ensicaen.equipe1.handiclient.homepackage.HomeActivity;
 import fr.ensicaen.equipe1.handiclient.homepackage.HomeControl;
 import fr.ensicaen.equipe1.handiclient.homepackage.HomeModel;
 import fr.ensicaen.equipe1.handiclient.homepackage.HomeView;
@@ -29,7 +31,6 @@ public class AuthenticationActivity extends Activity {
     protected void onResume() {
 		super.onResume();
 		_authenticationView.describeActivity();
-
 		//_authenticationView.reactOnAction(button);
 	}
     
@@ -49,5 +50,11 @@ public class AuthenticationActivity extends Activity {
 
 	public AuthenticationView getView() {
 		return _authenticationView;
+	}
+
+	public void intentToGoodByeActivity() {
+		Intent goodByeIntent = new Intent(getApplicationContext(), GoodByeActivity.class);
+		this.startActivity(goodByeIntent);
+		finish();
 	}
 }
