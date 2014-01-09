@@ -115,10 +115,6 @@ public final class NetworkHandler {
 		return 1;
 	}
 
-<<<<<<< HEAD
-	public static int getPersonalisation() {
-		return 0;
-=======
 	public boolean testUser(String id){
 		/*ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
 		  ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
@@ -139,6 +135,5 @@ public final class NetworkHandler {
 
 		  return test;*/
 		return true;
->>>>>>> db6cca26193ca2f93cca6d2532f111bde96d661c
 	}
 }
