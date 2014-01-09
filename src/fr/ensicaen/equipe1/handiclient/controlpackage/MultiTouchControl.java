@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 public class MultiTouchControl implements IControl {
 
+	private IControl _activityControl;
+
 	private float _previousX;
 	private float _previousY;
 	private int pointCnt = 0;
@@ -14,19 +16,23 @@ public class MultiTouchControl implements IControl {
 	private static final int INVALID_POINTER_ID = -1;
 	private int _singleFingerPointerID = INVALID_POINTER_ID;
 
+	public MultiTouchControl(IControl activityControl) {
+		_activityControl = activityControl;
+	}
+
 	@Override
 	public void useButton(int i) {
-		System.out.println("Button"+i);
+		_activityControl.useButton(i);
 	}
 
 	@Override
 	public void useButtonCancel() {
-		System.out.println("ButtonCancel");
+		_activityControl.useButtonCancel();
 	}
 
 	@Override
 	public void useButtonValidate() {
-		System.out.println("ButtonValidate");
+		_activityControl.useButtonValidate();
 	}
 
 	@Override
@@ -62,14 +68,11 @@ public class MultiTouchControl implements IControl {
 				}
 			}
 			if (pointCnt > 0) {
-				useButton(pointCnt%10);
-				// code = code + String.valueOf(pointCnt);
-				// textView.setText(code);
+				useButton(pointCnt % 10);
 			}
 			break;
 
 		case MotionEvent.ACTION_POINTER_DOWN:
-			// textView.setText( String.valueOf(pointCnt));
 			int currentPointerCnt = motionEvent.getPointerCount();
 
 			if (currentPointerCnt > pointCnt) {

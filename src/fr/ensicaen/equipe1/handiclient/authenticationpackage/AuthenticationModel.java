@@ -7,6 +7,7 @@ public class AuthenticationModel {
 	private AuthenticationActivity _authenticationActivity;
 	private MainModel _mainModel;
 	private String _activityDescription = "Entrer votre code PIN. Poser le nombre de doigts correspondant au chiffre souhaité. Zéro correspond à dix doigts.";
+	private String _pinCodeEnteredByUser = "";
 
 	public AuthenticationModel(AuthenticationActivity authenticationActivity) {
 		_authenticationActivity = authenticationActivity;
@@ -21,14 +22,34 @@ public class AuthenticationModel {
 		return _mainModel.getViewType();
 	}
 
-	public boolean verifyPIN(String pin){
-		if(pin.equals(_mainModel.getPin()))
-		{		
+	public void addNumberToPin(int i) {
+		_pinCodeEnteredByUser += "" + i;
+		
+		// Notify View
+		_authenticationActivity.getView().addStarToPinField();
+	}
+
+	public boolean cancelEntry() {
+		int length = _pinCodeEnteredByUser.length();
+		if (length == 0)
+			return false;
+		_pinCodeEnteredByUser = _pinCodeEnteredByUser.substring(0, length - 1);
+		// Notify View
+		_authenticationActivity.getView().removeStarFromPinField();
+		
+		return true;
+	}
+
+	public boolean verifyPIN() {
+		if (_pinCodeEnteredByUser.equals(_mainModel.getPin()))
 			return true;
-		}
+		
+		// Notify View
+		//TODO Message de code erroné
+		
 		return false;
 	}
-	
+
 	public String getActivityDescription() {
 		return _activityDescription;
 	}
