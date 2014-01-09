@@ -45,7 +45,6 @@ public class AuthenticationView implements IView{
 	}
 	
 	public void describeActivity() {
-		System.out.println(_authenticationActivity.getModel().getActivityDescription());
 		_view.describe(_authenticationActivity.getModel().getActivityDescription());
 	}
 	

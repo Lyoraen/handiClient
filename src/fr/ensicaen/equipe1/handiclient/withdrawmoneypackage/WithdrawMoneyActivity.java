@@ -61,4 +61,11 @@ public class WithdrawMoneyActivity extends Activity {
 		finish();
 		
 	}
+	
+	@Override
+	public void onPause(){
+		_withdrawMoneyView.destroyTTS();
+		super.onPause();
+		
+	}
 }

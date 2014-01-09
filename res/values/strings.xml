@@ -26,10 +26,10 @@
     <string name="authentication">Authentication</string>
     <string name="menu">Menu</string>
     <string name="withdraw">Withdraw money</string>
-    <string name="menuDescription">Choississez l\'action à effectuer.</string>
+    <string name="menuDescription">Choisissez l\'action à effectuer.</string>
     <string name="withdraw20euros">1 : Retirer 20 euros.</string>
     <string name="otherWithdraw">2 : Retrait autre montant.</string>
-    <string name="getBalance">3 : Solde de vos contes.</string>
+    <string name="getBalance">3 : Consultation de votre solde.</string>
     <string name="otherOperation">4 : Autre opération.</string>
     <string name="withdrawmoneyDescription">Saisissez votre montant </string>
     <string name="pin2">PIN :</string>

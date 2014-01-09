@@ -70,12 +70,12 @@ public final class R {
         public static final int soldeField3=0x7f08000a;
         public static final int soldetext=0x7f080008;
         public static final int title=0x7f080001;
+        public static final int withdrawmoneybutton0=0x7f08003a;
         public static final int withdrawmoneybutton1=0x7f08002d;
-        public static final int withdrawmoneybutton10=0x7f08003a;
-        public static final int withdrawmoneybutton11=0x7f080038;
-        public static final int withdrawmoneybutton12=0x7f080039;
-        public static final int withdrawmoneybutton13=0x7f08003b;
-        public static final int withdrawmoneybutton14=0x7f08003c;
+        public static final int withdrawmoneybutton10=0x7f080038;
+        public static final int withdrawmoneybutton11=0x7f080039;
+        public static final int withdrawmoneybutton12=0x7f08003b;
+        public static final int withdrawmoneybutton13=0x7f08003c;
         public static final int withdrawmoneybutton2=0x7f08002e;
         public static final int withdrawmoneybutton3=0x7f08002f;
         public static final int withdrawmoneybutton4=0x7f080031;

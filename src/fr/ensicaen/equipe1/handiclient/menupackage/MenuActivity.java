@@ -61,4 +61,11 @@ public class MenuActivity extends Activity {
 		this.startActivity(withdrawMoneyIntent);
 		finish();
 	}
+	
+	@Override
+	public void onPause(){
+		_menuView.destroyTTS();
+		super.onPause();
+		
+	}
 }

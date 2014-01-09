@@ -50,7 +50,7 @@ public class MenuView implements IView {
 
 	@Override
 	public void destroyTTS() {
-		// TODO Auto-generated method stub
+		_view.destroyTTS();
 		
 	}
 }
