@@ -61,7 +61,6 @@ public class HomeActivity extends Activity {
 		super.onPause();
 	}
 
-
 	public void resolveIntent(Intent intent) {
 		Tag tagFromIntent = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 
@@ -80,16 +79,12 @@ public class HomeActivity extends Activity {
 				NdefRecord record = messages[0].getRecords()[0];
 				try {
 					// decoding the payload
-					byte[] payload = record.getPayload();
-					String textEncoding = ((payload[0] & 0200) == 0) ? "UTF-8" : "UTF-16";
-					int languageCodeLength = payload[0] & 0077;
-					//String languageCode = new String(payload, 1, languageCodeLength, "US-ASCII");
-					String data = new String(payload, languageCodeLength + 1, payload.length - languageCodeLength - 1, textEncoding);
+					TextRecord textRecord = TextRecord.parse(record);
+					String data = textRecord.getContent();
+					//System.out.println(data);
+	
 					StringTokenizer st = new StringTokenizer(data,"*");
-					System.out.println(data);
-					/*System.out.println(st.nextToken());
-					System.out.println(st.nextToken());
-					System.out.println(st.nextToken());*/
+
 					_homeModel.setCardData(uid, st.nextToken(), st.nextToken(), st.nextToken());
 				} catch (Exception e){
 					e.printStackTrace();
