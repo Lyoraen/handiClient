@@ -27,6 +27,7 @@ public final class R {
         public static final int GridLayout1=0x7f08000f;
         public static final int action_settings=0x7f08003d;
         public static final int add=0x7f080004;
+        public static final int amountField=0x7f08002c;
         public static final int approchez=0x7f080002;
         public static final int authenticationbutton0=0x7f08001d;
         public static final int authenticationbutton1=0x7f080010;
@@ -44,22 +45,6 @@ public final class R {
         public static final int authenticationbutton9=0x7f08001a;
         public static final int authenticationbuttoncancel=0x7f080013;
         public static final int authenticationbuttonvalidate=0x7f080017;
-        public static final int button1=0x7f08002d;
-        public static final int button10=0x7f080036;
-        public static final int button11=0x7f080037;
-        public static final int button12=0x7f080038;
-        public static final int button13=0x7f080039;
-        public static final int button14=0x7f08003a;
-        public static final int button15=0x7f08003b;
-        public static final int button16=0x7f08003c;
-        public static final int button2=0x7f08002e;
-        public static final int button3=0x7f08002f;
-        public static final int button4=0x7f080030;
-        public static final int button5=0x7f080031;
-        public static final int button6=0x7f080032;
-        public static final int button7=0x7f080033;
-        public static final int button8=0x7f080034;
-        public static final int button9=0x7f080035;
         public static final int choixmontant=0x7f08002b;
         public static final int end=0x7f080021;
         public static final int id=0x7f080005;
@@ -76,7 +61,6 @@ public final class R {
         public static final int menubutton3=0x7f080027;
         public static final int menubutton4=0x7f080028;
         public static final int menubutton5=0x7f080029;
-        public static final int montantField=0x7f08002c;
         public static final int nom=0x7f080007;
         public static final int nomfield=0x7f080008;
         public static final int pin=0x7f08000d;
@@ -86,6 +70,22 @@ public final class R {
         public static final int soldetext=0x7f080009;
         public static final int title=0x7f080001;
         public static final int valid=0x7f08000b;
+        public static final int withdrawmoneybutton1=0x7f08002d;
+        public static final int withdrawmoneybutton10=0x7f08003a;
+        public static final int withdrawmoneybutton11=0x7f080038;
+        public static final int withdrawmoneybutton12=0x7f080039;
+        public static final int withdrawmoneybutton13=0x7f08003b;
+        public static final int withdrawmoneybutton14=0x7f08003c;
+        public static final int withdrawmoneybutton2=0x7f08002e;
+        public static final int withdrawmoneybutton3=0x7f08002f;
+        public static final int withdrawmoneybutton4=0x7f080031;
+        public static final int withdrawmoneybutton5=0x7f080032;
+        public static final int withdrawmoneybutton6=0x7f080033;
+        public static final int withdrawmoneybutton7=0x7f080035;
+        public static final int withdrawmoneybutton8=0x7f080036;
+        public static final int withdrawmoneybutton9=0x7f080037;
+        public static final int withdrawmoneybuttoncancel=0x7f080030;
+        public static final int withdrawmoneybuttonvalidate=0x7f080034;
     }
     public static final class layout {
         public static final int activity_accueil=0x7f030000;
