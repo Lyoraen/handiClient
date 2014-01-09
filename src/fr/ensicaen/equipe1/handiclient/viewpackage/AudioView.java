@@ -3,6 +3,7 @@ package fr.ensicaen.equipe1.handiclient.viewpackage;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
+import fr.ensicaen.equipe1.handiclient.R;
 
 import android.app.Activity;
 import android.speech.tts.TextToSpeech;
@@ -42,7 +43,6 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 				}
 			}
 		}).start();
-
 	}
 
 	private void readDescription(View v) {
