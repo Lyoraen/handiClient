@@ -7,7 +7,6 @@ import fr.ensicaen.equipe1.handiclient.viewpackage.AudioView;
 import fr.ensicaen.equipe1.handiclient.viewpackage.IView;
 
 public class AuthenticationView implements IView{
-
 	private AuthenticationActivity _authenticationActivity;
 	private IView _view;
 	
@@ -28,9 +27,20 @@ public class AuthenticationView implements IView{
 	public void describe() {
 		_view.describe();
 	}
+	
+	@Override
+	public void reactOnNumberButtons(Button button) {
+		_view.reactOnNumberButtons(button);
+	}
 
-	public void reactOnAction(Button button) {
-		_view.reactOnAction(button);
+	@Override
+	public void reactOnCancelButton(Button button) {
+		_view.reactOnCancelButton(button);
+	}
+
+	@Override
+	public void reactOnValidateButton(Button button) {
+		_view.reactOnValidateButton(button);
 	}
 	
 	public void describeActivity() {

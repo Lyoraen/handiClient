@@ -34,6 +34,7 @@ public class AuthenticationModel {
 		if (length == 0)
 			return false;
 		_pinCodeEnteredByUser = _pinCodeEnteredByUser.substring(0, length - 1);
+		
 		// Notify View
 		_authenticationActivity.getView().removeStarFromPinField();
 		

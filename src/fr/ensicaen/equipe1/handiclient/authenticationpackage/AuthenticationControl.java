@@ -21,20 +21,20 @@ public class AuthenticationControl implements IControl {
 	@Override
 	public void useButton(int i) {
 		_authenticationActivity.getModel().addNumberToPin(i);
-		_authenticationActivity.getView().reactOnAction((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbutton"+i, "id", _authenticationActivity.getPackageName())));
+		_authenticationActivity.getView().reactOnNumberButtons((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbutton"+i, "id", _authenticationActivity.getPackageName())));
 	}
 
 	@Override
 	public void useButtonCancel() {
 		boolean cancelled = _authenticationActivity.getModel().cancelEntry();
-		_authenticationActivity.getView().reactOnAction((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbuttoncancel", "id", _authenticationActivity.getPackageName())));
+		_authenticationActivity.getView().reactOnCancelButton((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbuttoncancel", "id", _authenticationActivity.getPackageName())));
 		//TODO if (cancelled == true) _activity.intentToGoodByeActivity();
 	}
 
 	@Override
 	public void useButtonValidate() {
 		_authenticationActivity.getModel().verifyPIN();
-		_authenticationActivity.getView().reactOnAction((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbuttonvalidate", "id", _authenticationActivity.getPackageName())));
+		_authenticationActivity.getView().reactOnValidateButton((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbuttonvalidate", "id", _authenticationActivity.getPackageName())));
 
 	}
 	
