@@ -15,8 +15,12 @@ import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.View;
+import android.widget.Button;
 import fr.ensicaen.equipe1.handiclient.R;
+import fr.ensicaen.equipe1.handiclient.adminpackage.AdminActivity;
 import fr.ensicaen.equipe1.handiclient.authenticationpackage.AuthenticationActivity;
+import fr.ensicaen.equipe1.handiclient.withdrawmoneypackage.WithdrawMoneyActivity;
 
 @TargetApi(Build.VERSION_CODES.GINGERBREAD_MR1)
 public class HomeActivity extends Activity {
@@ -36,6 +40,16 @@ public class HomeActivity extends Activity {
 
 
 		setContentView(R.layout.activity_home);
+		
+		final Button button = (Button) findViewById(R.id.adminButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	Intent AdminIntent = new Intent(getApplicationContext(), AdminActivity.class);
+        		startActivity(AdminIntent);
+        		finish();
+            }
+        });
+		
 		mAdapter = NfcAdapter.getDefaultAdapter(getApplicationContext());
 		if(mAdapter==null || !mAdapter.isEnabled()){
 			finish();
