@@ -1,6 +1,7 @@
 package fr.ensicaen.equipe1.handiclient.authenticationpackage;
 
 import android.widget.Button;
+import android.widget.TextView;
 import fr.ensicaen.equipe1.handiclient.R;
 import fr.ensicaen.equipe1.handiclient.viewpackage.AudioView;
 import fr.ensicaen.equipe1.handiclient.viewpackage.IView;
@@ -9,6 +10,8 @@ public class AuthenticationView {
 
 	private AuthenticationActivity _authenticationActivity;
 	private IView _view;
+	
+	private String _pinCodeDisplayed = "";
 
 	public AuthenticationView(AuthenticationActivity authenticationActivity,String viewType) {
 		_authenticationActivity = authenticationActivity;
@@ -33,5 +36,21 @@ public class AuthenticationView {
 	public void describeActivity() {
 		System.out.println(_authenticationActivity.getModel().getActivityDescription());
 		_view.describeActivity(_authenticationActivity.getModel().getActivityDescription());
+	}
+	
+	public void addStarToPinField() {
+		_pinCodeDisplayed += "*";
+		updatePinField();
+	}
+	
+	public void removeStarFromPinField() {
+		int length = _pinCodeDisplayed.length();
+		_pinCodeDisplayed = _pinCodeDisplayed.substring(0, length - 1);
+		updatePinField();
+	}
+	
+	private void updatePinField() {
+		TextView pinField = (TextView) _authenticationActivity.findViewById(R.id.pinField);
+		pinField.setText(_pinCodeDisplayed);
 	}
 }
