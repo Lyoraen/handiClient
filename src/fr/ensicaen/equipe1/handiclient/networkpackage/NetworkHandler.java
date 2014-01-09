@@ -9,7 +9,7 @@ public final class NetworkHandler {
 	static final int serverPort = 6942;
 	static String serverName = "localhost";
 
-	private NetworkHandler() {
+	public NetworkHandler() {
 
 	}
 
