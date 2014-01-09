@@ -21,7 +21,7 @@
         android:text="@string/quelleoperation" />
     
     <Button
-        android:id="@+id/retrait20"
+        android:id="@+id/menubutton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/quelleoperation"
@@ -36,10 +36,10 @@
       />
     
     <Button
-        android:id="@+id/retraitautre"
+        android:id="@+id/menubutton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/retrait20"
+        android:layout_below="@id/menubutton1"
         android:layout_alignParentLeft="true"
         android:width="400dp"
         android:height="110dp"
@@ -51,10 +51,10 @@
        />
     
     <Button
-        android:id="@+id/annuler"
+        android:id="@+id/menubutton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/retraitautre"
+        android:layout_below="@id/menubutton2"
         android:layout_alignParentLeft="true"
         android:width="400dp"
         android:height="110dp"
@@ -66,7 +66,7 @@
       />
     
     <Button
-        android:id="@+id/solde"
+        android:id="@+id/menubutton4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/quelleoperation"
@@ -81,10 +81,10 @@
 	 />
     
     <Button
-        android:id="@+id/autreoperation"
+        android:id="@+id/menubutton5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/solde"
+        android:layout_below="@id/menubutton4"
         android:layout_alignParentRight="true"
         android:width="400dp"
         android:height="110dp"
