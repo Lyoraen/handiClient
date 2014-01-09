@@ -29,17 +29,6 @@ public class WithdrawMoneyView implements IView{
 		_view.describe();
 	}
 
-	@Override
-	public void reactOnAction(Button button) {
-		_view.reactOnAction(button);
-		
-	}
-
-	@Override
-	public void describeActivity(String speech) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public void addNumberToAmountField(int i) {
 		_amountDisplayed += i;
@@ -59,6 +48,30 @@ public class WithdrawMoneyView implements IView{
 	private void updateAmountField() {
 		TextView amountField = (TextView) _withdrawMoneyActivity.findViewById(R.id.amountField);
 		amountField.setText(_amountDisplayed);	
+	}
+
+	@Override
+	public void describe(String speech) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reactOnNumberButtons(Button button) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reactOnCancelButton(Button button) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reactOnValidateButton(Button button) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
