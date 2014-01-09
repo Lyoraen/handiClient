@@ -35,8 +35,8 @@ public final class MainModel {
 				if (_instance == null) {
 					_instance = new MainModel(id,pin, controlMode, viewMode);
 					// connexion networkhandler
-					_name = _networkHandler.getName();
-					_balance = _networkHandler.getBalance();
+					_name = _networkHandler.getName(id);
+					_balance = _networkHandler.getBalance(id);
 				}
 			}
 		}

@@ -6,6 +6,7 @@ public class AuthenticationModel {
 
 	private AuthenticationActivity _authenticationActivity;
 	private MainModel _mainModel;
+	private String _activityDescription = "Entrer votre code PIN. Poser le nombre de doigts correspondant au chiffre souhaité. Zéro correspond à dix doigts.";
 
 	public AuthenticationModel(AuthenticationActivity authenticationActivity) {
 		_authenticationActivity = authenticationActivity;
@@ -26,6 +27,10 @@ public class AuthenticationModel {
 			return true;
 		}
 		return false;
+	}
+	
+	public String getActivityDescription() {
+		return _activityDescription;
 	}
 
 }

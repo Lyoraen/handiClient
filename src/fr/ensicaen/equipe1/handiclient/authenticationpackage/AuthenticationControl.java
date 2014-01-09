@@ -11,7 +11,7 @@ public class AuthenticationControl {
 	private AuthenticationActivity _authenticationActivity;
 	private IControl _control;
 
-	public void AuthenticationControl(AuthenticationActivity authenticationActivity,String controlType) {
+	public AuthenticationControl(AuthenticationActivity authenticationActivity,String controlType) {
 		_authenticationActivity = authenticationActivity;
 
 		if(controlType.equals("MULTITOUCH_MODE")) {
