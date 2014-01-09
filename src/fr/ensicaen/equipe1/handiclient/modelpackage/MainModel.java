@@ -10,23 +10,33 @@ public final class MainModel {
 	public static enum viewModes {
 		DEFAULT_MODE, AUDIO_MODE
 	};
-
-	private static volatile MainModel _instance = null;
+	
+	private volatile static MainModel _instance = null;
 
 	private String _id;
-	private int _controlType;
-	private int _viewType;
-	private NetworkHandler _networkHandler = NetworkHandler.getInstance();
+	private String _pin;
+	private String _controlType;
+	private String _viewType;
+	private static String _name;
+	private static int _balance;
+	private static NetworkHandler _networkHandler = NetworkHandler.getInstance();
 
-	private MainModel(String id) {
+	private MainModel(String id,String pin, String controlMode, String viewMode) {
 		_id = id;
+		_pin = pin;
+		// perso carte
+		_controlType = controlMode;
+		_viewType = viewMode;
 	}
 	
-	public static MainModel createInstance(String id) {
+	public static MainModel createInstance(String id, String pin, String controlMode, String viewMode) {
 		if (_instance == null) {
 			synchronized (MainModel.class) {
 				if (_instance == null) {
-					_instance = new MainModel(id);
+					_instance = new MainModel(id,pin, controlMode, viewMode);
+					// connexion networkhandler
+					_name = _networkHandler.getName();
+					_balance = _networkHandler.getBalance();
 				}
 			}
 		}
@@ -41,11 +51,24 @@ public final class MainModel {
 		_instance = null;
 	}
 	
-	public int getControlType() {
+	public String getControlType() {
 		return _controlType;
 	}
 	
-	public int getViewType() {
+	public String getViewType() {
 		return _viewType;
 	}
+	
+	public String getPin() {
+		return _pin;
+	}
+
+	public static String getName() {
+		return _name;
+	}
+
+	public static int getBalance() {
+		return _balance;
+	}
+	
 }

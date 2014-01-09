@@ -20,7 +20,7 @@
         android:layout_marginBottom="30dp"
         android:text="@string/pin" />
     
-    <EditText
+    <TextView
         android:id="@+id/pinField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
