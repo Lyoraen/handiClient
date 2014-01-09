@@ -17,7 +17,7 @@ public class GoodByeActivity extends Activity {
 		setContentView(R.layout.activity_goodbye);   
 		_goodByeModel = new GoodByeModel(this);
 
-		new CountDownTimer(5000, 1000) {
+		new CountDownTimer(2000, 1000) {
 
 			@Override
 			public void onFinish() {

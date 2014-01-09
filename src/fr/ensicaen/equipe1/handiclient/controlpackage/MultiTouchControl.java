@@ -59,10 +59,10 @@ public class MultiTouchControl implements IControl {
 			int pointerID = MotionEventCompat.getPointerId(motionEvent,
 					pointerIndex);
 			if (pointerID == _singleFingerPointerID) {
-				if (getDistance(_previousX, _previousY, motionEvent) > 200) {
+				if (getDistance(_previousX, _previousY, motionEvent) > 100) {
 					useButtonValidate();
 					pointCnt = 0;
-				} else if (getDistance(_previousX, _previousY, motionEvent) < -200) {
+				} else if (getDistance(_previousX, _previousY, motionEvent) < -100) {
 					useButtonCancel();
 					pointCnt = 0;
 				}

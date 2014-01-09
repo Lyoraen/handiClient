@@ -51,12 +51,7 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 	private void readDescription(View v) {
 		String text = v.getContentDescription().toString();
 		if (_hasInitializedTTS) {
-			_tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-			try {
-				Thread.sleep(2500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			_tts.speak(text, TextToSpeech.QUEUE_ADD, null);
 		} else {
 			_awaitingSpeeches.add(text);
 		}
@@ -127,12 +122,7 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		if (!_awaitingSpeeches.isEmpty()) {
 			Iterator<String> it = _awaitingSpeeches.iterator();
 			while (it.hasNext()) {
-				_tts.speak(it.next(), TextToSpeech.QUEUE_FLUSH, null);
-				try {
-					Thread.sleep(2500);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				_tts.speak(it.next(), TextToSpeech.QUEUE_ADD, null);
 			}
 		}
 	}
@@ -142,12 +132,7 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		new Thread(new Runnable() {
 			public void run() {
 				if (_hasInitializedTTS) {
-					_tts.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
-					try {
-						Thread.sleep(2500);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+					_tts.speak(speech, TextToSpeech.QUEUE_ADD, null);
 				} else {
 					_awaitingSpeeches.add(speech);
 				}

@@ -6,7 +6,7 @@ public class AuthenticationModel {
 
 	private AuthenticationActivity _authenticationActivity;
 	private MainModel _mainModel;
-	private String _activityDescription = "Entrez votre code PINE. Posez le nombre de doigts correspondant au chiffre souhaité. Zéro correspond à dix doigts. Glisser votre doigt de gauche à droite pour valider et de droite à gauche pour corriger";
+	private String _activityDescription = "Entrez votre code. Posez sur l'écran le nombre de doigts correspondant au chiffre souhaité. Zéro correspondant à dix doigts. Glisser votre doigt verre la gauche pour corriger et verre la droite pour valider";
 	private String _pinCodeEnteredByUser = "";
 
 	public AuthenticationModel(AuthenticationActivity authenticationActivity) {

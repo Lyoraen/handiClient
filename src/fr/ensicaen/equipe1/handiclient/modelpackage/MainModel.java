@@ -10,7 +10,7 @@ public final class MainModel {
 	public static enum viewModes {
 		DEFAULT_MODE, AUDIO_MODE
 	};
-	
+
 	private volatile static MainModel _instance = null;
 
 	private String _id;
@@ -19,27 +19,24 @@ public final class MainModel {
 	private String _viewType;
 	private static String _name;
 	private static int _balance;
-	private static NetworkHandler _networkHandler = NetworkHandler.getInstance();
+	private static NetworkHandler _networkHandler = NetworkHandler
+			.getInstance();
 
-	private MainModel(String id,String pin, String controlMode, String viewMode) {
+	private MainModel(String id, String pin, String controlMode, String viewMode) {
 		_id = id;
 		_pin = pin;
 		// perso carte
 		_controlType = controlMode;
 		_viewType = viewMode;
 	}
-	
-	public static MainModel createInstance(String id, String pin, String controlMode, String viewMode) {
-		if (_instance == null) {
-			synchronized (MainModel.class) {
-				if (_instance == null) {
-					_instance = new MainModel(id,pin, controlMode, viewMode);
-					// connexion networkhandler
-					_name = _networkHandler.getName(id);
-					_balance = _networkHandler.getBalance(id);
-				}
-			}
-		}
+
+	public static MainModel createInstance(String id, String pin,
+			String controlMode, String viewMode) {
+		_instance = new MainModel(id, pin, controlMode, viewMode);
+		// connexion networkhandler
+		_name = _networkHandler.getName(id);
+		_balance = _networkHandler.getBalance(id);
+
 		return _instance;
 	}
 
@@ -50,17 +47,17 @@ public final class MainModel {
 	public static void deleteInstance() {
 		_instance = null;
 	}
-	
+
 	public boolean verifyPin(String enteredPin) {
-		if(enteredPin.equals(_pin))
+		if (enteredPin.equals(_pin))
 			return true;
 		return false;
 	}
-	
+
 	public String getControlType() {
 		return _controlType;
 	}
-	
+
 	public String getViewType() {
 		return _viewType;
 	}
@@ -72,5 +69,5 @@ public final class MainModel {
 	public static int getBalance() {
 		return _balance;
 	}
-	
+
 }

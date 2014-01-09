@@ -111,31 +111,31 @@
     	android:height="70dp"
         android:text="9" /> 
     <Button
-        android:id="@+id/withdrawmoneybutton11"
+        android:id="@+id/withdrawmoneybutton10"
         android:layout_gravity="left|top"
     	android:height="70dp"
         android:width="100dp"
         android:text=" " />
     <Button
-        android:id="@+id/withdrawmoneybutton12"
+        android:id="@+id/withdrawmoneybutton11"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
         android:text=" " /> 
     <Button
-        android:id="@+id/withdrawmoneybutton10"
+        android:id="@+id/withdrawmoneybutton0"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
         android:text="0" />
     <Button
-        android:id="@+id/withdrawmoneybutton13"
+        android:id="@+id/withdrawmoneybutton12"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
         android:text=" " />
     <Button
-        android:id="@+id/withdrawmoneybutton14"
+        android:id="@+id/withdrawmoneybutton13"
         android:layout_gravity="left|top"
     	android:height="70dp"
         android:width="100dp"
