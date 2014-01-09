@@ -37,7 +37,7 @@
         </activity>
         <activity android:name="fr.ensicaen.equipe1.handiclient.menupackage.MenuActivity" >
         </activity>
-        <activity android:name="fr.ensicaen.equipe1.handiclient.withdrawoneypackage.WithdrawMoneyActivity" >
+        <activity android:name="fr.ensicaen.equipe1.handiclient.withdrawmoneypackage.WithdrawMoneyActivity" >
         </activity>
     </application>
 
