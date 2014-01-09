@@ -43,7 +43,7 @@ public class MenuView implements IView {
 	}
 
 	@Override
-	public void describeActivity(String speech) {
+	public void describe(String speech) {
 		// TODO Auto-generated method stub
 		
 	}
