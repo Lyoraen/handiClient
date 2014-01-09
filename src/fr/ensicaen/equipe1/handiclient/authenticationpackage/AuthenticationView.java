@@ -6,7 +6,7 @@ import fr.ensicaen.equipe1.handiclient.R;
 import fr.ensicaen.equipe1.handiclient.viewpackage.AudioView;
 import fr.ensicaen.equipe1.handiclient.viewpackage.IView;
 
-public class AuthenticationView {
+public class AuthenticationView implements IView{
 
 	private AuthenticationActivity _authenticationActivity;
 	private IView _view;
@@ -52,5 +52,11 @@ public class AuthenticationView {
 	private void updatePinField() {
 		TextView pinField = (TextView) _authenticationActivity.findViewById(R.id.pinField);
 		pinField.setText(_pinCodeDisplayed);
+	}
+
+	@Override
+	public void describeActivity(String speech) {
+		// TODO Auto-generated method stub
+		
 	}
 }
