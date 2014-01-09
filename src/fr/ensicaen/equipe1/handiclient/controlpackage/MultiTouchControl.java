@@ -6,97 +6,83 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 
 public class MultiTouchControl implements IControl {
-	
+
 	private float _previousX;
 	private float _previousY;
 	private int pointCnt = 0;
-	
+
 	private static final int INVALID_POINTER_ID = -1;
 	private int _singleFingerPointerID = INVALID_POINTER_ID;
 
-	TextView textView;  //textView = (TextView) findViewById(R.id.text);
-
 	@Override
 	public void useButton(int i) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Button"+i);
 	}
 
 	@Override
 	public void useButtonCancel() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("ButtonCancel");
 	}
 
 	@Override
 	public void useButtonValidate() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("ButtonValidate");
 	}
 
 	@Override
 	public void reactDependingOnUserActions(MotionEvent motionEvent) {
 		// MotionEvent reports input details from the touch screen
-				// and other input controls. In this case, you are only
-				// interested in events where the touch position changed.
+		// and other input controls. In this case, you are only
+		// interested in events where the touch position changed.
 
-				int pointerIndex;
-				int action = (motionEvent.getAction() & MotionEvent.ACTION_MASK);
+		int pointerIndex;
+		int action = (motionEvent.getAction() & MotionEvent.ACTION_MASK);
 
-				try {
-				
-					switch (action) {
-					case MotionEvent.ACTION_DOWN:
-						pointerIndex = MotionEventCompat.getActionIndex(motionEvent);
-						_singleFingerPointerID = MotionEventCompat.getPointerId(motionEvent, pointerIndex);
-						pointCnt = 1;
-						textView.setText("DOWN : " + String.valueOf(pointCnt));
-						_previousX = motionEvent.getX();
-						_previousY = motionEvent.getY();
-						break;
+		switch (action) {
+		case MotionEvent.ACTION_DOWN:
+			pointerIndex = MotionEventCompat.getActionIndex(motionEvent);
+			_singleFingerPointerID = MotionEventCompat.getPointerId(
+					motionEvent, pointerIndex);
+			pointCnt = 1;
+			_previousX = motionEvent.getX();
+			_previousY = motionEvent.getY();
+			break;
 
-					case MotionEvent.ACTION_UP:
-						pointerIndex = MotionEventCompat.getActionIndex(motionEvent);
-						int pointerID = MotionEventCompat.getPointerId(motionEvent, pointerIndex);
-						if(pointerID == _singleFingerPointerID){
-							if(getDistance(_previousX, _previousY, motionEvent) > 200){
-								textView.setText("valide");
-								pointCnt = 0;
-							}
-							else if (getDistance(_previousX, _previousY, motionEvent) < -200 ) {
-								textView.setText("annule");
-								pointCnt = 0;
-							}
-						}
-						if (pointCnt>0){
-							textView.setText(String.valueOf(pointCnt));
-							//code = code + String.valueOf(pointCnt);
-							//textView.setText(code);
-						}
-						break;
+		case MotionEvent.ACTION_UP:
+			pointerIndex = MotionEventCompat.getActionIndex(motionEvent);
+			int pointerID = MotionEventCompat.getPointerId(motionEvent,
+					pointerIndex);
+			if (pointerID == _singleFingerPointerID) {
+				if (getDistance(_previousX, _previousY, motionEvent) > 200) {
+					useButtonValidate();
+					pointCnt = 0;
+				} else if (getDistance(_previousX, _previousY, motionEvent) < -200) {
+					useButtonCancel();
+					pointCnt = 0;
+				}
+			}
+			if (pointCnt > 0) {
+				useButton(pointCnt%10);
+				// code = code + String.valueOf(pointCnt);
+				// textView.setText(code);
+			}
+			break;
 
+		case MotionEvent.ACTION_POINTER_DOWN:
+			// textView.setText( String.valueOf(pointCnt));
+			int currentPointerCnt = motionEvent.getPointerCount();
 
-					case MotionEvent.ACTION_POINTER_DOWN:
-						// textView.setText( String.valueOf(pointCnt));
-						int currentPointerCnt = motionEvent.getPointerCount();
+			if (currentPointerCnt > pointCnt) {
+				pointCnt = currentPointerCnt;
+			}
+			break;
 
-						if (currentPointerCnt > pointCnt) {
-							pointCnt = currentPointerCnt;
-						}
+		default:
+			break;
+		}
 
-						textView.setText("POINTER_DOWN : " + String.valueOf(pointCnt));
-						break;
-
-					default:
-						break;
-					}
-					
-				} catch (Exception e) {
-					Log.e("error", e.getMessage());
-				}	
 	}
-	
-	
+
 	/**
 	 * @brief getDistance
 	 */
@@ -117,14 +103,14 @@ public class MultiTouchControl implements IControl {
 		}
 		// add distance from last historical point to event's point
 		float dx = (ev.getX(0) - startX);
-		//Log.i("dx   ", String.valueOf(dx));
+		// Log.i("dx   ", String.valueOf(dx));
 		float dy = (ev.getY(0) - startY);
-		//Log.i("dy   ", String.valueOf(dy));
+		// Log.i("dy   ", String.valueOf(dy));
 		distanceSum += Math.sqrt(dx * dx + dy * dy);
-		if (dx < 0){// a gauche
+		if (dx < 0) {// a gauche
 			return -distanceSum;
-		}
-		else // a droite
+		} else
+			// a droite
 			return distanceSum;
 	}
 }

@@ -29,10 +29,6 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		_tts = new TextToSpeech(_activity, this);
 	}
 
-<<<<<<< HEAD
-	public void readActivityDescription(){
-		_activity.findViewById(R.id.layout);
-=======
 	@Override
 	public void describe() {
 		new Thread(new Runnable() {
@@ -47,11 +43,6 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 				}
 			}
 		}).start();
-<<<<<<< HEAD
-=======
-
->>>>>>> 05fc5798d320db99e01f1c85a28ef7899948a74a
->>>>>>> 7a1a949be587d995f9cae6644de99f90b517a278
 	}
 
 	private void readDescription(View v) {
