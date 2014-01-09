@@ -29,7 +29,9 @@ public class AuthenticationControl implements IControl {
 		boolean cancelled = _authenticationActivity.getModel().cancelEntry();
 		_authenticationActivity.getView().reactOnAction((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbuttoncancel", "id", _authenticationActivity.getPackageName())));
 		//TODO if (cancelled == true) _activity.intentToGoodByeActivity();
-		if (cancelled == true) _authenticationActivity.intentToGoodByeActivity();
+		if (cancelled == false) {
+			_authenticationActivity.intentToGoodByeActivity();
+		}
 	}
 
 	@Override

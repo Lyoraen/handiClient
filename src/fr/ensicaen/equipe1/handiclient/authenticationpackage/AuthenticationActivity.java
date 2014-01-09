@@ -31,7 +31,6 @@ public class AuthenticationActivity extends Activity {
     protected void onResume() {
 		super.onResume();
 		_authenticationView.describeActivity();
-
 		//_authenticationView.reactOnAction(button);
 	}
     
