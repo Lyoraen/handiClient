@@ -74,5 +74,8 @@ public class WithdrawMoneyView implements IView{
 		
 	}
 
-
+	public void tooMuchEntries() {
+		// TODO Auto-generated method stub
+		
+	}
 }

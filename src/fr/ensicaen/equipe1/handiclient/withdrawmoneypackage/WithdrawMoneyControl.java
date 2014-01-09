@@ -21,24 +21,26 @@ public class WithdrawMoneyControl implements IControl{
 
 	@Override
 	public void useButton(int i) {
-		_withdrawMoneyActivity.getModel().addNumberToAmount(i);
-		_withdrawMoneyActivity.getView().reactOnAction((Button) _withdrawMoneyActivity.findViewById(_withdrawMoneyActivity.getResources().getIdentifier("withdrawmoneybutton"+i, "id", _withdrawMoneyActivity.getPackageName())));
+		boolean added = _withdrawMoneyActivity.getModel().addNumberToAmount(i);
+		_withdrawMoneyActivity.getView().reactOnNumberButtons((Button) _withdrawMoneyActivity.findViewById(_withdrawMoneyActivity.getResources().getIdentifier("withdrawmoneybutton"+i, "id", _withdrawMoneyActivity.getPackageName())));
+		if(added == false)
+			_withdrawMoneyActivity.getView().tooMuchEntries();
 	}
 
 	@Override
 	public void useButtonCancel() {
 		boolean cancelled = _withdrawMoneyActivity.getModel().cancelEntry();
-		//TODO
-		//if (cancelled == true) _withdrawMoneyActivity.intentToGoodByeActivity();
-		_withdrawMoneyActivity.getView().reactOnAction((Button) _withdrawMoneyActivity.findViewById(_withdrawMoneyActivity.getResources().getIdentifier("withdrawmoneybuttoncancel", "id", _withdrawMoneyActivity.getPackageName())));
+		_withdrawMoneyActivity.getView().reactOnCancelButton((Button) _withdrawMoneyActivity.findViewById(_withdrawMoneyActivity.getResources().getIdentifier("withdrawmoneybuttoncancel", "id", _withdrawMoneyActivity.getPackageName())));
+		if (cancelled == false) {
+			_withdrawMoneyActivity.intentToGoodByeActivity();
+		}
+		
 	}
 
 	@Override
 	public void useButtonValidate() {
-		_withdrawMoneyActivity.getModel().verifyBalance();
-		_withdrawMoneyActivity.getView().reactOnAction((Button) _withdrawMoneyActivity.findViewById(_withdrawMoneyActivity.getResources().getIdentifier("withdrawmoneyvalidate", "id", _withdrawMoneyActivity.getPackageName())));
-		
-		
+		_withdrawMoneyActivity.getView().reactOnValidateButton((Button) _withdrawMoneyActivity.findViewById(_withdrawMoneyActivity.getResources().getIdentifier("withdrawmoneybuttonvalidate", "id", _withdrawMoneyActivity.getPackageName())));
+			_withdrawMoneyActivity.intentToGoodByeActivity();	
 	}
 
 	@Override

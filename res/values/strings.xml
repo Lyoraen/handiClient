@@ -26,6 +26,7 @@
     <string name="authentication">Authentication</string>
     <string name="menu">Menu</string>
     <string name="withdraw">Withdraw money</string>
+    <string name="withdrawmoneyDescription">Saisissez votre montant </string>
     
     
 

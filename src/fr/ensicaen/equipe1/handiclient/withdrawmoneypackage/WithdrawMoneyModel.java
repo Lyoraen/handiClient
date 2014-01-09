@@ -22,11 +22,14 @@ public class WithdrawMoneyModel {
 		return _mainModel.getViewType();
 	}
 	
-	public void addNumberToAmount(int i) {
-		_amountEnteredByUser += "" + i;
-		
-		// Notify View
-		_withdrawMoneyActivity.getView().addNumberToAmountField(i);
+	public boolean addNumberToAmount(int i) {
+		if(_amountEnteredByUser.length() < 3){
+			_amountEnteredByUser += "" + i;	
+			// Notify View
+			_withdrawMoneyActivity.getView().addNumberToAmountField(i);
+			return true;
+		}
+		return false;
 	}
 	
 	
@@ -44,12 +47,4 @@ public class WithdrawMoneyModel {
 	public String getActivityDescription() {
 		return _activityDescription;
 	}
-
-	public boolean verifyBalance() {
-		// TODO Auto-generated method stub
-		return false;
-		
-	}
-
-	
 }
