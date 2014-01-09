@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import fr.ensicaen.equipe1.handiclient.R;
 import fr.ensicaen.equipe1.handiclient.homepackage.HomeControl;
 import fr.ensicaen.equipe1.handiclient.homepackage.HomeModel;
@@ -27,8 +28,26 @@ public class AuthenticationActivity extends Activity {
     
     protected void onResume() {
 		super.onResume();
-		_authenticationView.describe();
-		_authenticationView.reactOnAction(button);
-		_authenticationControl.reactDependingOnUserActions(motionEvent);
+		_authenticationView.describeActivity();
+
+		//_authenticationView.reactOnAction(button);
+	}
+    
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+    	_authenticationControl.reactDependingOnUserActions(event);
+		return true;
+    }
+
+	public AuthenticationControl getControl() {
+		return _authenticationControl;
+	}
+
+	public AuthenticationModel getModel() {
+		return _authenticationModel;
+	}
+
+	public AuthenticationView getView() {
+		return _authenticationView;
 	}
 }

@@ -5,4 +5,6 @@ import android.widget.Button;
 public interface IView {
 	public void describe();
 	public void reactOnAction(Button button);
+	public void describeActivity(final String speech);
+
 }

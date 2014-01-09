@@ -29,5 +29,9 @@ public class AuthenticationView {
 	public void reactOnAction(Button button) {
 		_view.reactOnAction(button);
 	}
-
+	
+	public void describeActivity() {
+		System.out.println(_authenticationActivity.getModel().getActivityDescription());
+		_view.describeActivity(_authenticationActivity.getModel().getActivityDescription());
+	}
 }

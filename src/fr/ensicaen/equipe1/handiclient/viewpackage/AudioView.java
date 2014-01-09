@@ -1,5 +1,7 @@
 package fr.ensicaen.equipe1.handiclient.viewpackage;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -17,6 +19,8 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 	private TextToSpeech _tts;
 	private Activity _activity;
 	private int _layoutID;
+	private boolean hasInitializedTTS=false;
+	private ArrayList<String> awaitingSpeeches=new ArrayList<String>();
 
 	public AudioView(Activity activity, int layoutID) {
 		_activity = activity;
@@ -33,7 +37,7 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 					View v = layout.getChildAt(i);
 					if (v.getClass() == Button.class
 							|| v.getClass() == TextView.class) {
-						readButtonDescription((Button) v);
+						readDescription((TextView) v);
 					}
 				}
 			}
@@ -41,24 +45,28 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 
 	}
 
-	private void readButtonDescription(Button button) {
-		String text = button.getContentDescription().toString();
+	private void readDescription(View v) {
+		String text = v.getContentDescription().toString();
+		if(hasInitializedTTS) {
 		_tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 		try {
 			Thread.sleep(2500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		} else {
+			awaitingSpeeches.add(text);
+		}
 	}
 
 	@Override
 	public void reactOnAction(Button button) {
 		Animation animation = new ScaleAnimation(1, 0.8f, 1, 0.8f);
-	    animation.setDuration(300);
-	    animation.setInterpolator(new AccelerateInterpolator());
-	    animation.setRepeatCount(1);
-	    animation.setRepeatMode(Animation.REVERSE); 
-	    button.startAnimation(animation);
+		animation.setDuration(300);
+		animation.setInterpolator(new AccelerateInterpolator());
+		animation.setRepeatCount(1);
+		animation.setRepeatMode(Animation.REVERSE); 
+		button.startAnimation(animation);
 	}
 
 	@Override
@@ -72,5 +80,34 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 				Log.e("TTS", "Initilization Failed!");
 			}
 		}
+		hasInitializedTTS=true;
+		if(!awaitingSpeeches.isEmpty()) {
+			Iterator<String> it = awaitingSpeeches.iterator();
+			while(it.hasNext()) {
+				_tts.speak(it.next(), TextToSpeech.QUEUE_FLUSH, null);
+				try {
+					Thread.sleep(2500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public void describeActivity(final String speech) {
+		new Thread(new Runnable() {
+			public void run() {
+				if(hasInitializedTTS) {
+					_tts.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
+					try {
+						Thread.sleep(2500);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				} else {
+					awaitingSpeeches.add(speech);
+				}
+			}
+		}).start();
 	}
 }
