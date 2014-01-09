@@ -18,7 +18,8 @@
         android:textSize="40sp"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="50dp"
-        android:text="@string/quelleoperation" />
+        android:text="@string/quelleoperation"
+        android:contentDescription="@string/menuDescription" />
     
     <Button
         android:id="@+id/menubutton1"
@@ -33,6 +34,7 @@
         android:background="#FAFAFA"
         android:layout_marginBottom="10dp"
         android:textSize="40sp"
+        android:contentDescription="@string/withdraw20euros"
       />
     
     <Button
@@ -48,25 +50,11 @@
         android:background="#FAFAFA"
         android:layout_marginBottom="10dp"
         android:textSize="40sp"
+        android:contentDescription="@string/otherWithdraw"
        />
     
     <Button
         android:id="@+id/menubutton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/menubutton2"
-        android:layout_alignParentLeft="true"
-        android:width="400dp"
-        android:height="110dp"
-        android:text="@string/annuler"
-        android:textColor="#000000"
-        android:background="#FAFAFA"
-        android:layout_marginBottom="10dp"
-        android:textSize="40sp"
-      />
-    
-    <Button
-        android:id="@+id/menubutton4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/quelleoperation"
@@ -78,13 +66,14 @@
         android:background="#FAFAFA"
         android:layout_marginBottom="10dp"
         android:textSize="40sp"
+        android:contentDescription="@string/getBalance"
 	 />
     
     <Button
-        android:id="@+id/menubutton5"
+        android:id="@+id/menubutton4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/menubutton4"
+        android:layout_below="@id/menubutton3"
         android:layout_alignParentRight="true"
         android:width="400dp"
         android:height="110dp"
@@ -93,6 +82,24 @@
         android:background="#FAFAFA"
         android:layout_marginBottom="10dp"
         android:textSize="40sp"
+        android:contentDescription="@string/otherOperation"
     />
+    
+    <Button
+        android:id="@+id/menubuttoncancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menubutton2"
+        android:layout_alignParentLeft="true"
+        android:width="400dp"
+        android:height="110dp"
+        android:text="@string/annuler"
+        android:textColor="#000000"
+        android:background="#FAFAFA"
+        android:layout_marginBottom="10dp"
+        android:textSize="40sp"
+        android:visibility="gone"
+        android:contentDescription=""
+      />
 
 </RelativeLayout>

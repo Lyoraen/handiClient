@@ -60,7 +60,7 @@ public final class R {
         public static final int menubutton2=0x7f080026;
         public static final int menubutton3=0x7f080027;
         public static final int menubutton4=0x7f080028;
-        public static final int menubutton5=0x7f080029;
+        public static final int menubuttoncancel=0x7f080029;
         public static final int nom=0x7f080007;
         public static final int nomfield=0x7f080008;
         public static final int pin=0x7f08000d;
@@ -111,12 +111,16 @@ public final class R {
         public static final int autreoperation=0x7f05000b;
         public static final int choixmontant=0x7f05000d;
         public static final int end=0x7f05000c;
+        public static final int getBalance=0x7f05001c;
         public static final int goodBye=0x7f050014;
         public static final int hello_world=0x7f050002;
         public static final int home=0x7f050013;
         public static final int id=0x7f05000f;
         public static final int menu=0x7f050017;
+        public static final int menuDescription=0x7f050019;
         public static final int nom=0x7f050010;
+        public static final int otherOperation=0x7f05001d;
+        public static final int otherWithdraw=0x7f05001b;
         public static final int pin=0x7f050005;
         public static final int quelleoperation=0x7f050006;
         public static final int retrait20=0x7f050007;
@@ -125,6 +129,7 @@ public final class R {
         public static final int soldeText=0x7f050011;
         public static final int valid=0x7f050012;
         public static final int withdraw=0x7f050018;
+        public static final int withdraw20euros=0x7f05001a;
     }
     public static final class style {
         /** 

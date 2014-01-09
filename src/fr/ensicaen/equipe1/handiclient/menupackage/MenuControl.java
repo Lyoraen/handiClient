@@ -13,22 +13,28 @@ public class MenuControl implements IControl {
 	public MenuControl(MenuActivity menuActivity, String controlType) {
 		_menuActivity = menuActivity;
 
-		if(controlType.equals("MULTITOUCH_MODE")) {
+		if (controlType.equals("MULTITOUCH_MODE")) {
 			_control = new MultiTouchControl(this);
 		}
 	}
 
 	@Override
 	public void useButton(int i) {
-		switch(i) {
-		case 1 :
+		switch (i) {
+		case 1:
 			_menuActivity.intentToGoodByeActivity();
-		case 2 :
+			break;
+		case 2:
 			_menuActivity.intentWithdrawMoneyActivity();
-		case 3 :
+			break;
+		case 3:
 			_menuActivity.intentToGoodByeActivity();
+			break;
 		}
-		_menuActivity.getView().reactOnNumberButtons((Button) _menuActivity.findViewById(_menuActivity.getResources().getIdentifier("menubutton"+i, "id", _menuActivity.getPackageName())));
+		_menuActivity.getView().reactOnNumberButtons(
+				(Button) _menuActivity.findViewById(_menuActivity
+						.getResources().getIdentifier("menubutton" + i, "id",
+								_menuActivity.getPackageName())));
 	}
 
 	@Override
