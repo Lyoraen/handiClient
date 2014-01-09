@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import fr.ensicaen.equipe1.handiclient.R;
 import fr.ensicaen.equipe1.handiclient.goodbyepackage.GoodByeActivity;
+import fr.ensicaen.equipe1.handiclient.menupackage.MenuActivity;
 
 public class WithdrawMoneyActivity extends Activity {
 	private WithdrawMoneyControl _withdrawMoneyControl;
@@ -50,6 +51,13 @@ public class WithdrawMoneyActivity extends Activity {
 	public void intentToGoodByeActivity() {
 		Intent goodByeIntent = new Intent(getApplicationContext(), GoodByeActivity.class);
 		this.startActivity(goodByeIntent);
+		finish();
+		
+	}
+
+	public void intentToMenuActivity() {
+		Intent menuIntent = new Intent(getApplicationContext(), MenuActivity.class);
+		this.startActivity(menuIntent);
 		finish();
 		
 	}

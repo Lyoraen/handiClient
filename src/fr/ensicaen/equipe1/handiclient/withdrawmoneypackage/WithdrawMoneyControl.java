@@ -32,7 +32,7 @@ public class WithdrawMoneyControl implements IControl{
 		boolean cancelled = _withdrawMoneyActivity.getModel().cancelEntry();
 		_withdrawMoneyActivity.getView().reactOnCancelButton((Button) _withdrawMoneyActivity.findViewById(_withdrawMoneyActivity.getResources().getIdentifier("withdrawmoneybuttoncancel", "id", _withdrawMoneyActivity.getPackageName())));
 		if (cancelled == false) {
-			_withdrawMoneyActivity.intentToGoodByeActivity();
+			_withdrawMoneyActivity.intentToMenuActivity();
 		}
 	}
 

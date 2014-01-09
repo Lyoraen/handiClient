@@ -52,25 +52,25 @@ public class WithdrawMoneyView implements IView{
 
 	@Override
 	public void describe(String speech) {
-		// TODO Auto-generated method stub
+		_view.describe(speech);
 		
 	}
 
 	@Override
 	public void reactOnNumberButtons(Button button) {
-		// TODO Auto-generated method stub
+		_view.reactOnNumberButtons(button);
 		
 	}
 
 	@Override
 	public void reactOnCancelButton(Button button) {
-		// TODO Auto-generated method stub
+		_view.reactOnCancelButton(button);
 		
 	}
 
 	@Override
 	public void reactOnValidateButton(Button button) {
-		// TODO Auto-generated method stub
+		_view.reactOnValidateButton(button);
 		
 	}
 
