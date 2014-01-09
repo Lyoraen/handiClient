@@ -42,8 +42,8 @@ public final class R {
         public static final int authenticationbutton7=0x7f080018;
         public static final int authenticationbutton8=0x7f080019;
         public static final int authenticationbutton9=0x7f08001a;
-        public static final int authenticationbuttoncorriger=0x7f080013;
-        public static final int authenticationbuttonvalider=0x7f080017;
+        public static final int authenticationbuttoncancel=0x7f080013;
+        public static final int authenticationbuttonvalidate=0x7f080017;
         public static final int button1=0x7f08002d;
         public static final int button10=0x7f080036;
         public static final int button11=0x7f080037;

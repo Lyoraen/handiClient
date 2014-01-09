@@ -62,7 +62,7 @@
         android:text="3" />
     
     <Button
-        android:id="@+id/authenticationbuttoncorriger"
+        android:id="@+id/authenticationbuttoncancel"
         android:layout_gravity="left|top"
     	android:height="70dp"
         android:width="100dp"
@@ -86,7 +86,7 @@
     	android:height="70dp"
         android:text="6" /> 
     <Button
-        android:id="@+id/authenticationbuttonvalider"
+        android:id="@+id/authenticationbuttonvalidate"
         android:layout_gravity="left|top"
     	android:height="70dp"
         android:width="100dp"
