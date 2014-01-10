@@ -36,10 +36,10 @@ public final class MainModel {
 		// connexion networkhandler
 		NetworkHandler n = NetworkHandler.getInstance();
 		//_name = _networkHandler.getName(id);
-		n.getGetName().execute();
+		n.getGetNameFunction().execute();
 		_name = n.getName();
 		//_balance = _networkHandler.getBalance(id);
-		n.getGetBalance().execute();
+		n.getGetBalanceFunction().execute();
 		_balance = n.getMoney();
 
 		return _instance;

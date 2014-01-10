@@ -47,4 +47,9 @@ public class WithdrawMoneyModel {
 	public String getActivityDescription() {
 		return _activityDescription;
 	}
+
+	public String getAmountEnteredByUser() {
+		return _amountEnteredByUser;
+		
+	}
 }

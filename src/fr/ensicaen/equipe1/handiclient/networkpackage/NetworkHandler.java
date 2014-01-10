@@ -16,7 +16,7 @@ public final class NetworkHandler {
 	
 	private static NetworkHandler _instance = new NetworkHandler();
 	static final int serverPort = 6942;
-	static String serverName ="192.168.60.1";
+	static String serverName ="192.168.235.1";
 	Socket socket;
 	
 
@@ -79,23 +79,23 @@ public final class NetworkHandler {
 		serverName = newName;
 	}
 	
-	public Withdraw getWithdraw() {
+	public Withdraw getWithdrawFunction() {
 		return new Withdraw();
 	}
 	
-	public addUser getAddUser(){
+	public addUser getAddUserFunction(){
 		return new addUser();
 	}
 	
-	public getName getGetName(){
+	public getName getGetNameFunction(){
 		return new getName();
 	}
 	
-	public getBalance getGetBalance(){
+	public getBalance getGetBalanceFunction(){
 		return new getBalance();
 	}
 	
-	public testUser getGetGetGetGetGetTestUser(){
+	public testUser getTestUserFunction(){
 		return new testUser();
 	}
 	

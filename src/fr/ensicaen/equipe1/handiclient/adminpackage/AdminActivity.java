@@ -65,11 +65,11 @@ public class AdminActivity extends Activity {
 			NdefMessage msg = creerMessage(_stringToTag, true);
 			writeMessage(intent, msg);
 			
-			// Datanase writting
+			// Database writting
 			_networkHandler.setId(uid);
 			_networkHandler.setName(_nameField.getText().toString());
 			_networkHandler.setMoney(Integer.parseInt(_soldeField.getText().toString()));
-			_networkHandler.getAddUser().execute();
+			_networkHandler.getAddUserFunction().execute();
 			
 			//back to the home activity
 			Intent homeIntent = new Intent(getApplicationContext(), HomeActivity.class);

@@ -30,7 +30,7 @@
         android:textColor="#FFFFFF"
         android:width="200dp"
         android:height="50dp"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:background="#60695FEE"
         />
     

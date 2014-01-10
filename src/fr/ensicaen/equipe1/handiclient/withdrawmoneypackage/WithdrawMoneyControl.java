@@ -5,11 +5,13 @@ import android.widget.Button;
 import fr.ensicaen.equipe1.handiclient.controlpackage.IControl;
 import fr.ensicaen.equipe1.handiclient.controlpackage.MultiTouchControl;
 import fr.ensicaen.equipe1.handiclient.menupackage.MenuActivity;
+import fr.ensicaen.equipe1.handiclient.networkpackage.NetworkHandler;
 
 public class WithdrawMoneyControl implements IControl{
 	
 	private WithdrawMoneyActivity _withdrawMoneyActivity;
 	private IControl _control;
+	private NetworkHandler _networkHandler;
 
 	public WithdrawMoneyControl(WithdrawMoneyActivity withdrawMoneyActivity, String controlType) {
 		_withdrawMoneyActivity = withdrawMoneyActivity;
@@ -39,7 +41,17 @@ public class WithdrawMoneyControl implements IControl{
 	@Override
 	public void useButtonValidate() {
 		_withdrawMoneyActivity.getView().reactOnValidateButton((Button) _withdrawMoneyActivity.findViewById(_withdrawMoneyActivity.getResources().getIdentifier("withdrawmoneybuttonvalidate", "id", _withdrawMoneyActivity.getPackageName())));
-			_withdrawMoneyActivity.intentToGoodByeActivity();
+		int money = Integer.parseInt(_withdrawMoneyActivity.getModel().getAmountEnteredByUser());
+		_networkHandler = NetworkHandler.getInstance();
+		_networkHandler.setMoney(money);
+		_networkHandler.getWithdrawFunction().execute();
+		/*Boolean test = _networkHandler.getValidation();
+		if(test.booleanValue()==true){
+			//Argent retiré
+		}else{
+			//Argent pas retiré
+		}*/
+		_withdrawMoneyActivity.intentToGoodByeActivity();
 	}
 
 	@Override

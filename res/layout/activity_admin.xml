@@ -74,6 +74,7 @@
         android:layout_alignBottom="@+id/pin2"
         android:layout_alignLeft="@+id/nameField2"
         android:layout_alignRight="@+id/nameField2"
+        android:textColor="#FFFFFF"
         android:ems="10"
         android:inputType="numberPassword" />
 
@@ -85,6 +86,7 @@
         android:layout_alignBottom="@+id/soldetext"
         android:layout_alignLeft="@+id/nameField2"
         android:layout_alignRight="@+id/nameField2"
+        android:textColor="#FFFFFF"
         android:ems="10"
         android:inputType="number" />
 
