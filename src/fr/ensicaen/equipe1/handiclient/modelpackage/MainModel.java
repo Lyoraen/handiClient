@@ -33,8 +33,10 @@ public final class MainModel {
 	public static MainModel createInstance(String id, String pin,
 			String controlMode, String viewMode) {
 		_instance = new MainModel(id, pin, controlMode, viewMode);
+		
 		// connexion networkhandler
 		NetworkHandler n = NetworkHandler.getInstance();
+		n.setId(id);
 		//_name = _networkHandler.getName(id);
 		n.getGetNameFunction().execute();
 		_name = n.getName();
