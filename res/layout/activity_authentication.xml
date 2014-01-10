@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#040037"
+    android:background="@drawable/background"
     tools:context=".AccueilActivity" 
     android:id="@+id/layoutAuthentication">
 
@@ -16,8 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textSize="40sp"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="30dp"
+        android:textColor="#000000"
+        android:layout_marginBottom="20dp"
         android:text="@string/pin" />
     
     <TextView
@@ -28,7 +28,9 @@
         android:layout_below="@id/pin"
         android:width="200dp"
         android:height="50dp"
-        android:background="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        android:background="#60695FEE"
         />
     
     <GridLayout 
@@ -39,12 +41,15 @@
     android:rowCount="4"
     android:layout_centerHorizontal="true"
     android:layout_alignParentBottom="true"
+    android:layout_marginBottom="32dp"
+    android:background="#60695FEE"
     android:orientation="horizontal">
     <Button
         android:id="@+id/authenticationbutton1"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text="1" />
 
     <Button
@@ -52,6 +57,7 @@
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text="2" />
     
     <Button
@@ -59,6 +65,7 @@
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text="3" />
     
     <Button
@@ -66,78 +73,91 @@
         android:layout_gravity="left|top"
     	android:height="70dp"
         android:width="100dp"
+        android:textColor="#FFFFFF"
         android:text="Corriger" /> 
     <Button
         android:id="@+id/authenticationbutton4"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text="4" /> 
     <Button
         android:id="@+id/authenticationbutton5"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text="5" /> 
     <Button
         android:id="@+id/authenticationbutton6"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text="6" /> 
     <Button
         android:id="@+id/authenticationbuttonvalidate"
         android:layout_gravity="left|top"
     	android:height="70dp"
         android:width="100dp"
+        android:textColor="#FFFFFF"
         android:text="Valider" /> 
     <Button
         android:id="@+id/authenticationbutton7"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text="7" />
     <Button
         android:id="@+id/authenticationbutton8"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text="8" /> 
 	<Button
         android:id="@+id/authenticationbutton9"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text="9" /> 
     <Button
         android:id="@+id/authenticationbutton10"
         android:layout_gravity="left|top"
     	android:height="70dp"
         android:width="100dp"
+        android:textColor="#FFFFFF"
         android:text=" " />
     <Button
         android:id="@+id/authenticationbutton11"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text=" " /> 
     <Button
         android:id="@+id/authenticationbutton0"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text="0" />
     <Button
         android:id="@+id/authenticationbutton12"
         android:layout_gravity="left|top"
         android:width="70dp"
     	android:height="70dp"
+    	android:textColor="#FFFFFF"
         android:text=" " />
     <Button
         android:id="@+id/authenticationbutton13"
         android:layout_gravity="left|top"
     	android:height="70dp"
         android:width="100dp"
+        android:textColor="#FFFFFF"
         android:text=" " />
 
     </GridLayout>
