@@ -63,4 +63,10 @@ public class GoodByeView implements IView{
 		
 	}
 
+	@Override
+	public void reactOnSecretNumberButtons(Button button) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

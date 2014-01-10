@@ -88,12 +88,12 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 		/* Animation */
 		animateButton(button);
 		
-		/* Sound */
-		_toneGenerator.startTone(ToneGenerator.TONE_SUP_PIP,200); 
-		
 		/*TTS*/
 		if(_tts != null)
 			_tts.stop();
+		
+		/* Sound */
+		readDescription(button);
 	}
 	
 	private void animateButton (Button button) {
@@ -147,5 +147,18 @@ public class AudioView implements IView, TextToSpeech.OnInitListener {
 			_tts.shutdown();
 			_tts = null;
 		}
+	}
+
+	@Override
+	public void reactOnSecretNumberButtons(Button button) {
+		/* Animation */
+		animateButton(button);
+		
+		/* Sound */
+		_toneGenerator.startTone(ToneGenerator.TONE_SUP_PIP,200); 
+		
+		/*TTS*/
+		if(_tts != null)
+			_tts.stop();
 	}
 }

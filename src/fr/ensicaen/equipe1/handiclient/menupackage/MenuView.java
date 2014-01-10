@@ -53,4 +53,10 @@ public class MenuView implements IView {
 		_view.destroyTTS();
 		
 	}
+
+	@Override
+	public void reactOnSecretNumberButtons(Button button) {
+		// TODO Auto-generated method stub
+		
+	}
 }

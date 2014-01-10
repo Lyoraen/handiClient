@@ -21,7 +21,7 @@ public class AuthenticationControl implements IControl {
 	@Override
 	public void useButton(int i) {
 		boolean added = _authenticationActivity.getModel().addNumberToPin(i);
-		_authenticationActivity.getView().reactOnNumberButtons((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbutton"+i, "id", _authenticationActivity.getPackageName())));
+		_authenticationActivity.getView().reactOnSecretNumberButtons((Button) _authenticationActivity.findViewById(_authenticationActivity.getResources().getIdentifier("authenticationbutton"+i, "id", _authenticationActivity.getPackageName())));
 		if(added == false)
 			_authenticationActivity.getView().tooMuchEntries();
 	}
