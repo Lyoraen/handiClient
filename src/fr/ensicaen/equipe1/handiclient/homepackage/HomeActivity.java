@@ -20,6 +20,8 @@ import android.widget.Button;
 import fr.ensicaen.equipe1.handiclient.R;
 import fr.ensicaen.equipe1.handiclient.adminpackage.AdminActivity;
 import fr.ensicaen.equipe1.handiclient.authenticationpackage.AuthenticationActivity;
+import fr.ensicaen.equipe1.handiclient.goodbyepackage.GoodByeActivity;
+import fr.ensicaen.equipe1.handiclient.networkpackage.NetworkHandler;
 import fr.ensicaen.equipe1.handiclient.withdrawmoneypackage.WithdrawMoneyActivity;
 
 @TargetApi(Build.VERSION_CODES.GINGERBREAD_MR1)
@@ -81,30 +83,42 @@ public class HomeActivity extends Activity {
 
 		// getting the tag id
 		String uid = bin2hex(tagFromIntent.getId());
+		
+		NetworkHandler n = NetworkHandler.getInstance();
+		n.setId(uid);
+		n.getTestUserFunction().execute();
+		boolean b = n.getValidation();
 
-		String action = intent.getAction();
-		if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)){
-			Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
-			NdefMessage[] messages;
-			if (rawMsgs != null) {
-				messages = new NdefMessage[rawMsgs.length];
-				for (int i = 0; i < rawMsgs.length; i++) {
-					messages[i] = (NdefMessage) rawMsgs[i];
-				}
-				NdefRecord record = messages[0].getRecords()[0];
-				try {
-					// decoding the payload
-					TextRecord textRecord = TextRecord.parse(record);
-					String data = textRecord.getContent();
-					//System.out.println(data);
-	
-					StringTokenizer st = new StringTokenizer(data,"*");
+		if(b == true){
 
-					_homeModel.setCardData(uid, st.nextToken(), st.nextToken(), st.nextToken());
-				} catch (Exception e){
-					e.printStackTrace();
+			String action = intent.getAction();
+			if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)){
+				Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+				NdefMessage[] messages;
+				if (rawMsgs != null) {
+					messages = new NdefMessage[rawMsgs.length];
+					for (int i = 0; i < rawMsgs.length; i++) {
+						messages[i] = (NdefMessage) rawMsgs[i];
+					}
+					NdefRecord record = messages[0].getRecords()[0];
+					try {
+						// decoding the payload
+						TextRecord textRecord = TextRecord.parse(record);
+						String data = textRecord.getContent();
+						//System.out.println(data);
+
+						StringTokenizer st = new StringTokenizer(data,"*");
+
+						_homeModel.setCardData(uid, st.nextToken(), st.nextToken(), st.nextToken());
+					} catch (Exception e){
+						e.printStackTrace();
+					}
 				}
 			}
+		}else{
+			Intent goodByeIntent = new Intent(getApplicationContext(), GoodByeActivity.class);
+			this.startActivity(goodByeIntent);
+			finish();
 		}
 	}
 
