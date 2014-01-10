@@ -7,7 +7,7 @@ public class GoodByeControl {
 	private GoodByeActivity _goodByeActivity;
 	private IControl _control;
 
-	public GoodByeControl(GoodByeActivity goodByeActivity) {
+	public GoodByeControl(GoodByeActivity goodByeActivity, String controlType) {
 		_goodByeActivity = goodByeActivity;
 	}
 
