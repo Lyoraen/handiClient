@@ -16,7 +16,7 @@ public final class NetworkHandler {
 	
 	private static NetworkHandler _instance = new NetworkHandler();
 	static final int serverPort = 6942;
-	static String serverName ="192.168.235.1";
+	static String serverName ="192.168.61.1";
 	Socket socket;
 	
 
