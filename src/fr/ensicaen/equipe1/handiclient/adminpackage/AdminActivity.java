@@ -41,7 +41,7 @@ public class AdminActivity extends Activity {
 		_pinField = (EditText) findViewById(R.id.pinField3);
 		_soldeField = (EditText) findViewById(R.id.soldeField3);
 		
-		_networkHandler = new NetworkHandler();
+		_networkHandler = NetworkHandler.getInstance();
 
 	}
 
@@ -66,8 +66,11 @@ public class AdminActivity extends Activity {
 			writeMessage(intent, msg);
 			
 			// Datanase writting
-			_networkHandler.addUser(uid, _nameField.getText().toString(),  Integer.parseInt(_soldeField.getText().toString()));
-
+			_networkHandler.setId(uid);
+			_networkHandler.setName(_nameField.getText().toString());
+			_networkHandler.setMoney(Integer.parseInt(_soldeField.getText().toString()));
+			_networkHandler.getAddUser().execute();
+			
 			//back to the home activity
 			Intent homeIntent = new Intent(getApplicationContext(), HomeActivity.class);
 			startActivity(homeIntent);

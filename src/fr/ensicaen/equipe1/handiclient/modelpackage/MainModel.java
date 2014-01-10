@@ -34,8 +34,13 @@ public final class MainModel {
 			String controlMode, String viewMode) {
 		_instance = new MainModel(id, pin, controlMode, viewMode);
 		// connexion networkhandler
-		_name = _networkHandler.getName(id);
-		_balance = _networkHandler.getBalance(id);
+		NetworkHandler n = NetworkHandler.getInstance();
+		//_name = _networkHandler.getName(id);
+		n.getGetName().execute();
+		_name = n.getName();
+		//_balance = _networkHandler.getBalance(id);
+		n.getGetBalance().execute();
+		_balance = n.getMoney();
 
 		return _instance;
 	}
