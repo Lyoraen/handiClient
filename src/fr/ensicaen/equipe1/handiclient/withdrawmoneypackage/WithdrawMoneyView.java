@@ -12,6 +12,7 @@ public class WithdrawMoneyView implements IView{
 	private IView _view;
 	
 	private String _amountDisplayed = "";
+	private String _tooMuchEntries = "Impossible, le retrait doit être inférieur à 999 euros.";
 
 	public WithdrawMoneyView(WithdrawMoneyActivity withdrawMoneyActivity, String viewType) {
 		_withdrawMoneyActivity = withdrawMoneyActivity;
@@ -75,8 +76,7 @@ public class WithdrawMoneyView implements IView{
 	}
 
 	public void tooMuchEntries() {
-		// TODO Auto-generated method stub
-		
+		_view.describe(_tooMuchEntries);	
 	}
 
 	@Override

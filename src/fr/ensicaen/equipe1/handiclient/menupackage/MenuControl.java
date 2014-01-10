@@ -2,6 +2,7 @@ package fr.ensicaen.equipe1.handiclient.menupackage;
 
 import fr.ensicaen.equipe1.handiclient.controlpackage.IControl;
 import fr.ensicaen.equipe1.handiclient.controlpackage.MultiTouchControl;
+import fr.ensicaen.equipe1.handiclient.networkpackage.NetworkHandler;
 import android.view.MotionEvent;
 import android.widget.Button;
 
@@ -9,6 +10,7 @@ public class MenuControl implements IControl {
 
 	private MenuActivity _menuActivity;
 	private IControl _control;
+	NetworkHandler _networkHandler;
 
 	public MenuControl(MenuActivity menuActivity, String controlType) {
 		_menuActivity = menuActivity;
@@ -22,6 +24,9 @@ public class MenuControl implements IControl {
 	public void useButton(int i) {
 		switch (i) {
 		case 1:
+			_networkHandler = NetworkHandler.getInstance();
+			_networkHandler.setMoney(20);
+			_networkHandler.getWithdrawFunction().execute();
 			_menuActivity.intentToGoodByeActivity();
 			break;
 		case 2:
@@ -31,7 +36,7 @@ public class MenuControl implements IControl {
 			_menuActivity.intentToGoodByeActivity();
 			break;
 		}
-		_menuActivity.getView().reactOnNumberButtons(
+		_menuActivity.getView().reactOnSecretNumberButtons(
 				(Button) _menuActivity.findViewById(_menuActivity
 						.getResources().getIdentifier("menubutton" + i, "id",
 								_menuActivity.getPackageName())));

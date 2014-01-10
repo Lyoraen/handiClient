@@ -31,6 +31,11 @@ public class MenuView implements IView {
 	public void reactOnNumberButtons(Button button) {
 		_view.reactOnNumberButtons(button);
 	}
+	
+	@Override
+	public void reactOnSecretNumberButtons(Button button) {
+		_view.reactOnSecretNumberButtons(button);
+	}
 
 	@Override
 	public void reactOnCancelButton(Button button) {
@@ -51,12 +56,6 @@ public class MenuView implements IView {
 	@Override
 	public void destroyTTS() {
 		_view.destroyTTS();
-		
-	}
-
-	@Override
-	public void reactOnSecretNumberButtons(Button button) {
-		// TODO Auto-generated method stub
 		
 	}
 }

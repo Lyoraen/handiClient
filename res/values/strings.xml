@@ -8,11 +8,11 @@
     <string name="Approchez">Veuillez approcher votre carte </string>
     <string name="pin">Saisissez votre code PIN</string>
     <string name="quelleoperation">Quelle opération souhaitez-vous effectuer ?</string>
-    <string name="retrait20">Retrait 20Euros</string>
-    <string name="retraitautre">Retrait autre montant</string>
+    <string name="retrait20">1.Retrait 20Euros</string>
+    <string name="retraitautre">2.Retrait autre montant</string>
     <string name="annuler">Annuler</string>
-    <string name="solde">Consultation solde</string>
-    <string name="autreoperation">Autre opération</string>
+    <string name="solde">3.Consultation solde</string>
+    <string name="autreoperation">4.Autre opération</string>
     <string name="end">Merci et à bientôt...</string>
     <string name="choixmontant">Choisissez votre montant</string>
     <string name="add">Ajouter un client</string>

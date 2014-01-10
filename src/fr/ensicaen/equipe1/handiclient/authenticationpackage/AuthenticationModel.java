@@ -51,7 +51,7 @@ public class AuthenticationModel {
 			return true;
 		
 		// Notify View
-		//TODO Message de code erroné
+		_authenticationActivity.getView().errorInCode();
 		
 		return false;
 	}

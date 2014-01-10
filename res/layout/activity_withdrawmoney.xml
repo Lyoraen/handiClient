@@ -52,7 +52,8 @@
     	android:height="70dp"
     	android:textColor="#FFFFFF"
     	android:clickable="false"
-        android:text="1" />
+        android:text="1" 
+        android:contentDescription="un"/>
 
     <Button
         android:id="@+id/withdrawmoneybutton2"
@@ -61,7 +62,8 @@
     	android:height="70dp"
     	android:textColor="#FFFFFF"
     	android:clickable="false"
-        android:text="2" />
+        android:text="2"
+        android:contentDescription="deux" />
     
     <Button
         android:id="@+id/withdrawmoneybutton3"
@@ -70,7 +72,8 @@
     	android:height="70dp"
     	android:textColor="#FFFFFF"
     	android:clickable="false"
-        android:text="3" />
+        android:text="3"
+        android:contentDescription="trois" />
     
     <Button
         android:id="@+id/withdrawmoneybuttoncancel"
@@ -87,7 +90,8 @@
     	android:height="70dp"
     	android:textColor="#FFFFFF"
     	android:clickable="false"
-        android:text="4" /> 
+        android:text="4"
+        android:contentDescription="quatre" /> 
     <Button
         android:id="@+id/withdrawmoneybutton5"
         android:layout_gravity="left|top"
@@ -95,7 +99,8 @@
     	android:height="70dp"
     	android:textColor="#FFFFFF"
     	android:clickable="false"
-        android:text="5" /> 
+        android:text="5"
+        android:contentDescription="cink" /> 
     <Button
         android:id="@+id/withdrawmoneybutton6"
         android:layout_gravity="left|top"
@@ -103,7 +108,8 @@
     	android:height="70dp"
     	android:textColor="#FFFFFF"
     	android:clickable="false"
-        android:text="6" /> 
+        android:text="6"
+        android:contentDescription="cisse" /> 
     <Button
         android:id="@+id/withdrawmoneybuttonvalidate"
         android:layout_gravity="left|top"
@@ -119,7 +125,8 @@
     	android:height="70dp"
     	android:textColor="#FFFFFF"
     	android:clickable="false"
-        android:text="7" />
+        android:text="7"
+        android:contentDescription="cette" />
     <Button
         android:id="@+id/withdrawmoneybutton8"
         android:layout_gravity="left|top"
@@ -127,7 +134,8 @@
     	android:height="70dp"
     	android:textColor="#FFFFFF"
     	android:clickable="false"
-        android:text="8" /> 
+        android:text="8"
+        android:contentDescription="huitte" /> 
 	<Button
         android:id="@+id/withdrawmoneybutton9"
         android:layout_gravity="left|top"
@@ -135,7 +143,8 @@
     	android:height="70dp"
     	android:textColor="#FFFFFF"
     	android:clickable="false"
-        android:text="9" /> 
+        android:text="9"
+        android:contentDescription="neuf" /> 
     <Button
         android:id="@+id/withdrawmoneybutton10"
         android:layout_gravity="left|top"
@@ -159,7 +168,8 @@
     	android:height="70dp"
     	android:textColor="#FFFFFF"
     	android:clickable="false"
-        android:text="0" />
+        android:text="0"
+        android:contentDescription="zéro" />
     <Button
         android:id="@+id/withdrawmoneybutton12"
         android:layout_gravity="left|top"

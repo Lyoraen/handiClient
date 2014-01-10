@@ -28,7 +28,6 @@
         android:layout_centerHorizontal="true"
         android:background="#FFFFFF"
         android:ems="10"
-        android:height="50dp"
         android:width="200dp" >
 
         <requestFocus />
@@ -74,9 +73,10 @@
         android:layout_alignBottom="@+id/pin2"
         android:layout_alignLeft="@+id/nameField2"
         android:layout_alignRight="@+id/nameField2"
-        android:textColor="#FFFFFF"
+        android:background="#FFFFFF"
         android:ems="10"
-        android:inputType="numberPassword" />
+        android:inputType="numberPassword"
+        android:maxLength="4" />
 
     <EditText
         android:id="@+id/soldeField3"
@@ -86,8 +86,49 @@
         android:layout_alignBottom="@+id/soldetext"
         android:layout_alignLeft="@+id/nameField2"
         android:layout_alignRight="@+id/nameField2"
-        android:textColor="#FFFFFF"
+        android:background="#FFFFFF"
         android:ems="10"
         android:inputType="number" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/soldetext"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/white" />
+
+    <TextView
+        android:id="@+id/iptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/soldetext"
+        android:layout_below="@+id/soldetext"
+        android:layout_marginTop="50dp"
+        android:text="IP"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/ipField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/iptext"
+        android:layout_alignBottom="@+id/iptext"
+        android:layout_alignLeft="@+id/nameField2"
+        android:layout_alignRight="@+id/nameField2"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/validateIPButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/iptext"
+        android:layout_alignBottom="@id/iptext"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@id/ipField"
+        android:text="Valider l&apos;IP"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

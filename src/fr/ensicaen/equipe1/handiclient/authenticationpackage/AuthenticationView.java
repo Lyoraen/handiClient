@@ -1,5 +1,6 @@
 package fr.ensicaen.equipe1.handiclient.authenticationpackage;
 
+import android.graphics.Color;
 import android.widget.Button;
 import android.widget.TextView;
 import fr.ensicaen.equipe1.handiclient.R;
@@ -12,6 +13,7 @@ public class AuthenticationView implements IView{
 	
 	private String _pinCodeDisplayed = "";
 	private String _tooMuchEntries = "Le code é déjà composé de 4 caractères.";
+	private String _errorCode = "Code erroné!";
 
 	public AuthenticationView(AuthenticationActivity authenticationActivity,String viewType) {
 		_authenticationActivity = authenticationActivity;
@@ -32,6 +34,11 @@ public class AuthenticationView implements IView{
 	@Override
 	public void reactOnNumberButtons(Button button) {
 		_view.reactOnNumberButtons(button);
+	}
+	
+	@Override
+	public void reactOnSecretNumberButtons(Button button) {
+		_view.reactOnSecretNumberButtons(button);
 	}
 
 	@Override
@@ -67,6 +74,11 @@ public class AuthenticationView implements IView{
 	public void tooMuchEntries() {
 		_view.describe(_tooMuchEntries);
 	}
+	
+	public void errorInCode() {
+		_view.describe(_errorCode);
+		_authenticationActivity.findViewById(R.id.pinField).setBackgroundColor(Color.RED);
+	}
 
 	@Override
 	public void describe(String speech) {
@@ -77,12 +89,6 @@ public class AuthenticationView implements IView{
 	@Override
 	public void destroyTTS() {
 		_view.destroyTTS();
-		
-	}
-
-	@Override
-	public void reactOnSecretNumberButtons(Button button) {
-		// TODO Auto-generated method stub
 		
 	}
 }
