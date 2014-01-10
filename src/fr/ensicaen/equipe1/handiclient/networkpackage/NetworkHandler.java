@@ -23,7 +23,7 @@ public final class NetworkHandler {
 	String id;
 	int money;
 	String name;
-	Boolean validation;
+	boolean validation;
 
 	
 	
